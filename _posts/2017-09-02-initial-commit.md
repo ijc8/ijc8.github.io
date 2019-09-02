@@ -85,7 +85,7 @@ it fades with memory (both yours and whoever you said it to). You're unlikely to
 run into an embarassing situation when you're 25 regarding something dumb you
 said at 12; odds are good that nobody remembers.
 
-But on the Internet, things might just be forever. If someone Googles you're
+But on the Internet, things might just be forever. If someone Googles you're[^2]
 name when you're 25 and happens upon something dumb you posted on a forum as a
 12-year-old, they might assume you're that same dumb-thing-saying person now! Oh
 noooooooooo your life is ruined forever.
@@ -188,3 +188,5 @@ a decent time sink after all!
 
 
 [^1]: Note that this isn't specific to Virgin America.
+
+[^2]: Edit from two years later: ironically, I used "you're" here instead of "your". In the spirit of the original post, I have left this error as it is for posterity.
