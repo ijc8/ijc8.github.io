@@ -6,7 +6,7 @@ permalink: /contact/
 
 Email:
 
-    $ echo $URL | sed -r 's#.*/([a-z]+).*/www.*#\1@mit.edu#'
+    $ echo $URL | sed 's#.*//\(\([a-z]\+\)[^/]*\).*#\2@\1#'
 
 Assorted online accounts:
 - [GitHub](https://github.com/ijc8)
