@@ -4,16 +4,118 @@ title:     Projects
 permalink: /projects/
 ---
 
-# _2017_
+<a id="index"></a>
+2019 · [2018](#2018-) · [2017](#2017-) · [2016](#2016-) · [2015](#2015-) · [and beyond](#projects-from-the-bc-before-college-era-)
+
+# _2019_
+
+## f(x): Multi-FX Processor
+
+For my 6.115 final project, I built a multi-effects processor using the PSoC 5LP. This featured a waveform visualizer (effectively an audio-rate oscilloscope), a spectrum analyzer, and most importantly, a three-slot DSP chain with a variety of effects and parameters. The processor was controlled by touchscreen and several rotary encoders, and used the PSoC's built-in analog features to get samples in and audio. For performance, the effects were written in C using fixed-point arithmetic.
+
+Here's a demo showing off the system (complete with attractive cardboard housing) and a few effects:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VpB2HSXI5Eg" frameborder="0" allowfullscreen></iframe>
+
+## Musical Tetris
+
+For Electronic Music Composition II, I implemented Tetris in Max/MSP, using the position of blocks as controls for a kind of sequencer. Doing this in Max was kind of tortuous, but it works! The top-level patch ended up looking something like this:
+
+![Tetris in Max/MSP]({{ site.baseurl }}/images/tetris.png "it could be a lot messier")
+
+Video pending a convenient opportunity to run this patch on someone else's machine; running Max under Linux is pretty painful.
+
+# _2018_ [⬏](#index)
+
+## SoundSpace
+A project to connect sound and physical spaces, built during one wild weekend at [Hacking Arts](http://mithackingarts.com/) 2018 with Jasper K., Paul M., and Sean N. We used [LIDAR](https://en.wikipedia.org/wiki/Lidar) to detect the peoples' positions in a room and control musical parameters. We also used Google's Cloud Vision service to analyze the facial expression of a controller and change the mood of the music accordingly.
+
+We built two demos to demonstrate our system's functionality:
+1. Users stand along five radial lines from a circle; each can move closer or farther from the center to control the volume of a different stem (part) of a playing track in a DAW. Additionally, some tracks have different variants; the playing variant is determined by the emotion displayed by a user in front of a camera.
+2. People stand around the LIDAR and move freely. Each person corresponds to a sustained note; as they move around the LIDAR, pitch changes smoothly, with distance from the LIDAR determining volume. This mapping allows for melody by individual motion, harmony by group motion, and enables a kind of physical voice-leading. (To avoid an abrupt transition when wrapping at 2π radians, I used [Shepard tones](https://en.wikipedia.org/wiki/Shepard_tone) for the sustained notes.)
+
+Ultimately, our project [won 2nd place overall](http://mithackingarts.com/2018-hackathon-winners).
+
+![SoundSpace team with novelty check]({{ site.baseurl }}/images/soundspace.jpg "The SoundSpace team, complete with big novelty check and 50% of us looking at the camera.")
+
+## Compositions
+During the summer between junior and senior year, I set myself the goal of putting together one song a week. Barring road trips, I met that goal.
+
+The least embarassing results from these escapades follow:
+- [We Put A Man On The Moon](https://soundcloud.com/ijc8/we-put-a-man-on-the-moon) (samples an old speech)
+- [Shopping (without vocals)](https://soundcloud.com/ijc8/shopping-minus-vocals)
+- [Run Don't Walk](https://soundcloud.com/ijc8/run-dont-walk)
+- [Things Are Gonna Be Fine](https://soundcloud.com/ijc8/things-are-gonna-be-fine)
+- [hello, world](https://soundcloud.com/ijc8/hello-world)
+- [Limbo](https://soundcloud.com/ijc8/limbo)
+
+(The rest can be found on SoundCloud.)
+
+I also composed for Electronic Music Composition I. I think these are generally less embarassing, so I'll link them all here:
+- [Your Call](https://soundcloud.com/ijc8/your-call) - made entirely from sounds recorded around campus
+- [Improvisation 1 (Guitar & Bottle Cap)](https://soundcloud.com/ijc8/improvisation-1-guitar-bottle-cap)
+- [Improvisation 2 (Slice)](https://soundcloud.com/ijc8/improvisation-2-slice)
+- [Midi-worlds Interpretation](https://soundcloud.com/ijc8/midi-worlds-interpretation) - the same MIDI snippet played with increasingly esoteric instrument choices.
+- [Modern Halloween (A Ghost)](https://soundcloud.com/ijc8/modern-halloween-a-ghost)
+- [204](https://soundcloud.com/ijc8/sets/two-oh-four)
+
+## TICS: The Interactive Composition System
+A final project for Interactive Music Systems, developed in collaboration with Ini O. and Luke S. Our goal was to build a system that would allow a composer to specify some parts of a composition and fill in the rest automatically.
+
+![TICS]({{ site.baseurl }}/images/tics.png "TICS in action.")
+
+In order to contain the project scope, we decided to focus on tonal music, arranged in four voices (SATB). Essentially, our system:
+- allowed the user to optionally enter data for any future beats, in any of four voices (SATB), along with harmony, rhythm, and spacing + dissonance preferences,
+- picked a chord path (including modulations) to minimize cost based on the weights in the transition graphs, the user-specified notes/harmonies, and the dissonance settings,
+- and finally picked voicings to minimize cost according to the rules of counterpoint (e.g. preferring smooth voice leading, avoiding parallel perfect intervals), user-specified notes, and the spacing settings (more closed vs. more open)
+
+with the result that the system "filled in" any details (voices and harmonies) that the user didn't specify.
+
+Our system supported MIDI keyboard and microphone as input methods (the latter via the "huMIDIfier" described below). We included "classical" and "jazz" chord graphs, optimizing progression choices by calculating the cost for all possible chord paths within a max lookahead. The ultimate choice of chord path and voicings was explicitly probabilistic (using softmax) to avoid excessive predictability.
+
+## Interactive Music Systems
+I don't usually include regular homework from classes here, but the problem sets in Interactive Music Systems allowed for some pretty fun and creative submissions, so I'll make an exception.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jRwrGtsot1k" frameborder="0" allowfullscreen></iframe>
+
+The magic harp, unlike other psets, was controlled by a [Leap Motion](https://www.leapmotion.com/) controller, allowing the user to play a "magic harp" using all ten fingers. My submission included a variety of scales and harp configurations, both of which could be chosen via hand gestures.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BRnzdoO2Z4s" frameborder="0" allowfullscreen></iframe>
+
+This was a keyboard-based clone of Guitar Hero's core gameplay. My submission was distinctive for its 3D projection of upcoming notes.
+
+(My terrible performance in the video is, uh, definitely intentional. Yep, just showing off all the functionality...)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FNQM-CpUR6U" frameborder="0" allowfullscreen></iframe>
+
+A mouse-controlled arpeggiator with some neat visuals and a few built-in chord progressions and basslines. It allowed the user to change the MIDI instrument for each part (lead, bass, and drums).
+
+Other psets:
+- [Graphics](https://www.youtube.com/watch?v=KL8tOKMOacg)
+- [Sampling](https://www.youtube.com/watch?v=s5TYX3wSE-g)
+- [Sine Synthesis](https://www.youtube.com/watch?v=iIIhC_2V4J4)
+
+
+## huMIDIfier
+A tiny utility for taking in audio input and generating MIDI output, developed
+as a project for an IAP (January) course on signals & systems. Nothing too
+fancy, but it allows doing things like entering notes into a score editor (e.g.
+MuseScore) via non-MIDI instruments (e.g. electric guitar, acoustic piano).
+Strictly monophonic.
+
+# _2017_ [⬏](#index)
 
 ## Two Brothers
-A game developed for 6.073 (Creating Video Games) in collaboration with Victor
-L., Victor O., and Daniel B. Rest-assured that its combination of AAA polish and
-indie charm will have it topping Steam charts in no time, as will its touching
-and yet action-packed storyline. Made with Unity, and various open game assets
-deftly located by Victor L.
+A game developed as a class project in 6.073 (Creating Video Games) in
+collaboration with Victor L., Victor O., and Daniel B. Rest-assured that its
+combination of AAA polish and indie charm will have it topping Steam charts in
+no time, as will its touching and yet action-packed storyline. Made with Unity,
+this game features local co-op, top-notch in-house voice acting and scoring,
+various open game assets deftly located by Victor L., two thrilling levels plus
+a boss fight, and a noble quest to save the realm from destruction.
 
-Screenshots and link pending.
+![Two Brothers: Level 1]({{ site.baseurl }}/images/twobrothers_lvl1.png "two brothers, taking on hordes of the undead")
+![Two Brothers: Level 2]({{ site.baseurl }}/images/twobrothers_lvl2.png "two brothers, fighting to save their home")
+![Two Brothers: Boss]({{ site.baseurl }}/images/twobrothers_boss.png "two brothers, one big skeleton guy")
 
 ## Mafia Webapp
 [Mafia](https://en.wikipedia.org/wiki/Mafia_(party_game)) is a fairly popular
@@ -38,7 +140,7 @@ Screenshot of a game "in-progress":
 
 ![Potato Action Mafia]({{ site.baseurl }}/images/potatoactionmafia.png "No potatoes :-(")
 
-# _2016_
+# _2016_ [⬏](#index)
 
 ## Karajan-MIT Classical Music Hackathon
 A simple and modest score visualizer built during the Karajan-MIT Classical Music Hackathon, built in collaboration with Lisa K., Josie T., and Alice. Available [on GitHub](https://github.com/ijc8/karajan-mit).
@@ -93,7 +195,7 @@ Screenshot in case you don't feel like clicking the link:
 ![Screenshot of Pianobar Tracker in browser]({{ site.baseurl }}/images/pianobar.png "inb4 judgement for taste in music")
 
 
-# _2015_
+# _2015_ [⬏](#index)
 
 ## Speaker Project
 As part of my freshman advising seminar, we built speaker projects on a budget
@@ -149,7 +251,7 @@ With the encouragement of a friendly upperclassman, I spent a fair amount of tim
 
 Simply power it on and point the antenna. The Spook-o-meter will first gather data, before settling on a final result - an accurate reading of paranormal activity in the area!
 
-Pictures of this wondruous technology (regrettably low-quality because I took them using a potato):
+Pictures of this wondrous technology (regrettably low-quality because I took them using a potato):
 
 ![Spook-o-meter]({{ site.baseurl }}/images/spook-o-meter1.jpg "I ain't afraid of no ghosts.")
 
@@ -157,7 +259,7 @@ _In user-friendly text, displays "2 spooky 4 me". All measurements are in the SI
 
 ![More spook-o-meter]({{ site.baseurl }}/images/spook-o-meter2.jpg "Highly. Qualified.")
 
-_A highly-qualified paranormal research takes a reading._
+_A highly-qualified paranormal researcher takes a reading._
 
 ### What's in the box?
 ![Spook-o-meter internals]({{ site.baseurl }}/images/spook-o-meter3.jpg "Only the most advanced components.")
@@ -168,7 +270,7 @@ Contents: An Arduino, two breadboards, two [seven-segment displays](https://en.w
 
 Additionally, the Spook-o-meter is built to last, and should be able to stand up to heavy use in the fields. For this reason, highly durable materials were used to construct the enclosure, such as Pop-Tart boxes and duct tape.
 
-# _Projects from the B.C. (Before College) era:_
+# _Projects from the B.C. (Before College) era:_ [⬏](#index)
 
 ## Polygonal Pong - Summer 2014
 After junior year, I felt that I had lapsed in my programming activity, and set out to work on a project that would keep me busy for a while. The result was a game which I never really finished, or fully settled on a name for. (I felt "Polygonal Pong" was apt but too long, and found that "Polypong" was taken by a [game of the physical variety](http://www.polypong.com/). I ended up picking "PiNG", only to later realize [that was taken too](http://pingthegame.com/)).
@@ -185,9 +287,9 @@ Also, scoring works as follows: whenever a player misses the ball, everyone else
 
 Other features:
 - An actual interface! Most of my experiments in making games prior to PiNG didn't offer such high-falutin' porcelain as "menus" or "buttons". This one did, and even included such polish as:
--- Menu items that change color as you hover over them!
--- A full interface for configuring a game, allowing you to customize each player and set keybindings for humans, or difficulty for AIs.
--- You know how some games have a preview going on in the background of the start screen? I wanted something like that, so a full-AI game (with a random number of players and sides) unobstrusively plays itself in the background of the start menu.
+  - Menu items that change color as you hover over them!
+  - A full interface for configuring a game, allowing you to customize each player and set keybindings for humans, or difficulty for AIs.
+  - You know how some games have a preview going on in the background of the start screen? I wanted something like that, so a full-AI game (with a random number of players and sides) unobstrusively plays itself in the background of the start menu.
 - Speaking of which, the game offers three levels of AI difficulty, with the most sophisticated simulating the ball's motion well in advance to determine where it should move the paddle.
 - I also implemented a little developer console which was occasionally useful when testing.
 
