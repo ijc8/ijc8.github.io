@@ -4,6 +4,12 @@ title:     Research
 permalink: /research/
 ---
 
+TurboTrack
+---
+TurboTrack is a system for RFID localization developed by the [Signal Kinetics](https://www.media.mit.edu/groups/signal-kinetics/overview/) group under [Fadel Adib](https://www.mit.edu/~fadel/). RFID tags are normally used to identify people and goods, but our technology enables determining their position in 3D space as well. RFID tags are particularly useful as localization targets due to their low cost, ubiquity, and battery-free operation.
+
+I am currently building the next iteration of this system, aiming to improve range, multi-tag tracking, cost and practiality, and more. I hope to make the system more practical for interactive and especially musical applications, so watch this space for demos!
+
 ConcertCue
 ---
 ConcertCue is a system for streaming synchronized program notes during a live musical performance, with the goal of enriching the concert-going experience with text and images designed to aid in musical appreciation and understanding. I worked on this project with Professor [Eran Egozy](https://mta.mit.edu/person/eran-egozy) and Diane Zhou throughout the 2018-2019 academic year.

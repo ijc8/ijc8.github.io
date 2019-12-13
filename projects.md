@@ -9,6 +9,18 @@ permalink: /projects/
 
 # _2019_
 
+## Fall Compositions
+
+As of late, I've been playing with the incipient and fabulous [MIT Laptop Ensemble](https://mta.mit.edu/music/performance/mit-laptop-ensemble), a.k.a. FaMLE. It's been a great experience playing this weird and wonderful music with a dedicated group of musicians, and it has also presented some novel compositional opportunities.
+
+This semester, I composed the piece Gloop I for the ensemble. This piece is built on the premise of recording, sharing, and remixing small sonic moments. Using an instrument I call the Glooper (for "group looper"), any ensemble member can use the laptop to record audio and have it instantly shared with the rest of the group. Anyone can then start playing it back, changing playback rate, position, or volume, and recording the output of that loop (including their live modifications) to a new loop.
+
+A recording of the performance is available on [SoundCloud](https://soundcloud.com/ijc8/gloop-i).
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/727163761&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+
+I also composed a tune for the jazz combo I play with, called "Wideband". The lead sheet is available [here]({{ site.baseurl }}/static/Wideband.pdf). I'll post the recording here as soon as it's available.
+
 ## f(x): Multi-FX Processor
 
 For my 6.115 final project, I built a multi-effects processor using the PSoC 5LP. This featured a waveform visualizer (effectively an audio-rate oscilloscope), a spectrum analyzer, and most importantly, a three-slot DSP chain with a variety of effects and parameters. The processor was controlled by touchscreen and several rotary encoders, and used the PSoC's built-in analog features to get samples in and audio. For performance, the effects were written in C using fixed-point arithmetic.
