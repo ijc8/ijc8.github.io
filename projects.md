@@ -42,8 +42,10 @@ Video pending a convenient opportunity to run this patch on someone else's machi
 A project to connect sound and physical spaces, built during one wild weekend at [Hacking Arts](http://mithackingarts.com/) 2018 with Jasper K., Paul M., and Sean N. We used [LIDAR](https://en.wikipedia.org/wiki/Lidar) to detect the peoples' positions in a room and control musical parameters. We also used Google's Cloud Vision service to analyze the facial expression of a controller and change the mood of the music accordingly.
 
 We built two demos to demonstrate our system's functionality:
-1. Users stand along five radial lines from a circle; each can move closer or farther from the center to control the volume of a different stem (part) of a playing track in a DAW. Additionally, some tracks have different variants; the playing variant is determined by the emotion displayed by a user in front of a camera.
+1. Users stand along five radial lines from a circle; each can move closer or farther from the center to control the volume of a different stem (part) of a playing track in a DAW. Additionally, some tracks have different variants; the playing variant is determined by the emotion displayed by a user in front of a camera. This demo can be seen in the video below.
 2. People stand around the LIDAR and move freely. Each person corresponds to a sustained note; as they move around the LIDAR, pitch changes smoothly, with distance from the LIDAR determining volume. This mapping allows for melody by individual motion, harmony by group motion, and enables a kind of physical voice-leading. (To avoid an abrupt transition when wrapping at 2π radians, I used [Shepard tones](https://en.wikipedia.org/wiki/Shepard_tone) for the sustained notes.)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NCvj4RVfzuY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Ultimately, our project [won 2nd place overall](http://mithackingarts.com/2018-hackathon-winners).
 
