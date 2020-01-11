@@ -18,7 +18,7 @@ Hi! Here are some samples of my work across a few different domains. I realize t
  --- [proposal](/static/fx_proposal.pdf) --- [PSoC schematic](/static/fx_schematic.pdf)
 
 **_ConcertCue_ --- Stream program notes synchronized with a live musical performance**  
-[webapp](https://concertcue.com) --- [video](https://www.youtube.com/watch?v=HrRjUTXZFcE) --- [info](https://musictech.mit.edu/concertcue) --- [in the boston symphony orchestra's basement](/images/bso_concertcue.jpeg)
+[webapp](http://concertcue.com) --- [video](https://www.youtube.com/watch?v=HrRjUTXZFcE) --- [info](https://musictech.mit.edu/concertcue) --- [in the boston symphony orchestra's basement](/images/bso_concertcue.jpeg)
 
 **_RFID Localization for Interactive Systems_**  
 [master's thesis proposal](http://web.mit.edu/ijc/www/thesis_proposal.pdf) --- [TurboTrack info](https://www.media.mit.edu/projects/turbotrack-3d-backscatter-localization-for-fine-grained/overview/)
