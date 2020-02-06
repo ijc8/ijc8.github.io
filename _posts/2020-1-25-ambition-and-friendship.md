@@ -10,13 +10,17 @@ Is ambition good?
 
 It's an old question, and one that recurs perenially among my friends.
 
-The instinctive answer, at least to an American who grew up admiring cowboys and engineers in equal measure, is a resounding "yes". Could we have built the skyscraper without ambition? The railroad? The airplane, or the Internet? Could we have gone to the moon without ambition? Could we have built the country? No. It seems ambition was necessary for many good and wondrous things, so ambition must be good.
+The instinctive answer, at least to an American who grew up admiring cowboys and astronauts in equal measure, is a resounding "yes". Could we have built the skyscraper without ambition? The railroad? The airplane, or the Internet? Could we have gone to the moon without ambition? Could we have built the country? No. It seems ambition was necessary for many good and wondrous things, so ambition must be good.
 
 Of course, it's not that simple. Ambition is the motivation towards greatness, but there's a reason that the words "great" and "terrible" are old friends. Ambition leads dictators and tyrants to claim power, it ignites needless wars that extinguish innocent lives, and generally encourages disruption without any guarantee of making change for the better.
 
 This question is tough; let's try an easier one. What about friendship? Is friendship good? The consensus seems to be "yes".
 
 Here I consider two classics that deal with these questions: Xenophon's _The Education of Cyrus_ (as translated by Wayne Ambler), and Frank Capra's _It's a Wonderful Life_. They might seem to be an odd couple, but they share some remarkable parallels.
+
+{:style="text-align:center"}
+![The cover of "The Education of Cyrus"]({{ site.baseurl }}/images/the_education_of_cyrus.jpg "a greek classic"){: height="300px" style="margin-right: 150px"}
+![The poster for "It's a Wonderful Life"]({{ site.baseurl }}/images/its_a_wonderful_life.jpg "a christmas classic"){: height="300px"}
 
 [**spoiler warning:** naturally, spoilers follow. if you're concerned about that, you should probably go read/watch these and come back.]
 
@@ -28,7 +32,7 @@ The book opens with by asking a question about political systems: namely, how to
 
 The question posed, Xenophon spends the remainder of the book describing the life of one man who apparently answered this question by example: Cyrus of Persia, who went on to conquer just about his entire known world and rule over it as king. To give the briefest account of this narrative: Cyrus is a kid in Persia, which at the time was a pretty small country. Like the rest of the boys in Persia, he trains constantly, learns justice, and lives a rather ~~Spartan~~ Persian life. Then, we he's maybe 12 or so, he visits his grandpa, the king of nearby Media.[^1] Grandpa, unlike the Persians, lives resplendently, and introduces Cyrus to a life of luxury. Also, Cyrus learns horseback riding and makes a bunch of Median friends. Eventually, grandpa dies and Cyrus goes back to Persia, where he manages to convince everyone that he hasn't gone soft from his extended stay in the Comfy Kingdom.
 
-When Cyrus is a young adult and a good Persian citizen, a threat approaches: Persia's unfriendly neighbors are amassing allies and resources to put Persia and Media in their places. The Persian Jedi Council nominates Cyrus to amass the Persian army and go handle it. Cyrus meets up with his uncle Cyraxes, the current Median ruler, and then handle it he does. To make a medium-length story short, Cyrus then goes the extra mile, and a few thousand extra miles beyond that, and ends up conquering Assyria and installing himself as the king in its capital of Babylon.
+When Cyrus is a young adult and a good Persian citizen, a threat approaches: Persia's unfriendly neighbors are amassing allies and resources to put Persia and Media in their places. The Persian Jedi Council nominates Cyrus to amass the Persian army and go handle it. Cyrus meets up with his uncle Cyaxares, the current Median ruler, and then handle it he does. To make a medium-length story short, Cyrus then goes the extra mile, and a few thousand extra miles beyond that, and ends up conquering Assyria and installing himself as the king in its capital of Babylon.
 
 {: style="text-align: center"}
 ![A still from the "Boy, that escalated quickly" line in Anchorman.]({{ site.baseurl }}/images/escalated.png "is this meme still relevant"){: height="200px"}
@@ -118,15 +122,15 @@ Finally, Potter, disturbed by the fact that Bailey Building & Loan is enabling t
 
 George is an ambitious man. He wants to see the world, to get an education, to build skyscrapers and get rich! But every single time he tries to get out of his hometown and pursue those ambitions, he is yanked back by his sense of responsibility to his family and community.
 
-Cyrus is ambitious, too. Perhaps owing to his adolescence spent in the luxury of Media, Cyrus has a certain ambition beyond that of the ordinarily very restrained and moderate Persians. His ambition is demonstrated at a crucial moment early in his conquest. After solidly defeating the original threat to Persia and Media (the reason why Cyrus was granted an army in the first place), Cyrus and Cyraxes are quite pleased. But Cyrus is not content to end there. Consider Cyraxes's response:
+Cyrus is ambitious, too. Perhaps owing to his adolescence spent in the luxury of Media, Cyrus has a certain ambition beyond that of the ordinarily very restrained and moderate Persians. His ambition is demonstrated at a crucial moment early in his conquest. After solidly defeating the original threat to Persia and Media (the reason why Cyrus was granted an army in the first place), Cyrus and Cyaxares are quite pleased. But Cyrus is not content to end there. Consider Cyaxares's response:
 
-> ...perhaps it also seemed to [Cyraxes] to be fine that they not run further risks, for he, as it happened, was busy enjoying himself, and he saw many of the other Medes doing the same thing.
+> ...perhaps it also seemed to [Cyaxares] to be fine that they not run further risks, for he, as it happened, was busy enjoying himself, and he saw many of the other Medes doing the same thing.
 >
 > So he spoke as follows: "Cyrus, that of all human beings you Persians take the noblest care not be **insatiably disposed toward any single pleasure** I know both by seeing and by hearing. Yet it seems to me to be most especially advantageous to be **continent in the greatest pleasure**. And what provides human begins greater pleasure than the good fortune that has now come to us? If then, when we enjoy good fortune, we guard it moderately, it would perhaps be within our power to grow old in happiness without risk. Yet if we are **insatiable** in this, and try to pursue first one and then another [instance of good fortune], watch out that we do not suffer..."
 
-The whole thing with the Persians of Cyrus's time is their tough exercise of moderation and restraint, but here Cyraxes's all but outright accuses Cyrus of being immoderate and incontinent: Cyrus is _insatiable_ for victory and fortune. His ambition is out of control.
+The whole thing with the Persians of Cyrus's time is their tough exercise of moderation and restraint, but here Cyaxares's all but outright accuses Cyrus of being immoderate and incontinent: Cyrus is _insatiable_ for victory and fortune. His ambition is out of control.
 
-Cyrus is apparently always striving to be good, just, virtuous, and above all moderate, as a Persian should. But he appears to have become distinctly immoderate in his ambitions. Rather than celebrate his and Cyraxes' early victory, he insists on riding his momentum further and further until he has conquered an empire. This certainly seems to work in Cyrus's favor --- he has a great life and dies contented. Ironically, though, all of Cyrus's grand conquest and leadership ultimately works to the great detriment of his community. As Xenophon describes in the end:
+Cyrus is apparently always striving to be good, just, virtuous, and above all moderate, as a Persian should. But he appears to have become distinctly immoderate in his ambitions. Rather than celebrate his and Cyaxares' early victory, he insists on riding his momentum further and further until he has conquered an empire. This certainly seems to work in Cyrus's favor --- he has a great life and dies contented. Ironically, though, all of Cyrus's grand conquest and leadership ultimately works to the great detriment of his community. As Xenophon describes in the end:
 
 > When Cyrus died, however, his sons immediately fell into dissension, cities and nations immediately revolted, and everything took a turn for the worse.
 >
@@ -142,7 +146,9 @@ But his family, allies, and even his fatherland are torn asunder by the power st
 
 ## Conclusion
 
-George Bailey is a man of ambition who puts his dreams on the sideline every time duty calls, and in doing so greatly benefits his family and community. Cyrus of Persia is a man of ambition who successfully chases it to the edges of his known world, and in doing so does lasting harm to his community and his family. But both Cyrus and George, for different reasons, are excellent at making friends of everyone around them, and in this respect both are men of great wealth.
+_The Education of Cyrus_ and _It's a Wonderful Life_ are, on the surface, two very different works: they are from different times, of different cultures, in different formats, and on different subjects. Despite these surface differences, these two classics have some striking parallels, and they both have something to say about ambition and friendship.
+
+George Bailey is a man of ambition who puts his big dreams on the sideline every time duty calls, and in doing so greatly benefits his family and community. Cyrus of Persia is a man of ambition who successfully chases it to the edges of his known world, and in doing so inadvertently destroys everything he holds dear. George demonstrates the value of ambition moderated by love, while Cyrus illustrates the dangers of ambition unmoderated. Both Cyrus and George, acting with very different motives, are excellent at making friends of everyone around them, and in this sense both are men of great wealth.
 
 [^1]: To clarify, Media was a place. Which is apparently where we get the words "Media" and "Median" from. Cyrus's Median friends weren't average: they were from Media!
 
