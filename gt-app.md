@@ -42,7 +42,7 @@ More casual examples of my writing can be found on my intermittently-updated [bl
 ## Compositions
 
 **_Gloop I_ --- Composition for laptop ensemble.**  
-[instrument code](https://github.com/ijc8/glooper) --- [performance instructions](https://github.com/collaborative-music-lab/MLE/blob/master/compositions/Gloop/Gloop%20I(1).pdf) --- [video recording](https://www.youtube.com/watch?v=AZlGGCQjuFA)
+[instrument code](https://github.com/ijc8/glooper) --- [performance instructions](https://github.com/collaborative-music-lab/MLE/blob/fb0865ab0751052ac881a9d2dbaf7ef7611bc1e2/compositions/F19/Gloop/Gloop%20I(1).pdf) --- [video recording](https://www.youtube.com/watch?v=AZlGGCQjuFA)
 
 **_Wideband_ --- Composition for jazz combo.**  
 [lead sheet](/static/Wideband.pdf) --- [parts](/static/wideband_parts.pdf) --- [audio recording](https://soundcloud.com/ijc8/wideband)
