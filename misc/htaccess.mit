@@ -1,0 +1,8 @@
+RedirectMatch "/~ijc/$" "http://ijc8.me/"
+RedirectMatch "/~ijc/(.*)/$" "http://ijc8.me/$1/"
+RedirectMatch "/~ijc/(.*)\.html$" "http://ijc8.me/$1.html"
+
+RedirectMatch "/ijc/www/$" "http://ijc8.me/"
+RedirectMatch "/ijc/www/(.*)/$" "http://ijc8.me/$1/"
+RedirectMatch "/ijc/www/(.*)\.html$" "http://ijc8.me/$1.html"
+
