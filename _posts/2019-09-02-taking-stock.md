@@ -6,7 +6,7 @@ date: 2019-09-02 00:28:00 -0400
 
 It's time for a change.
 
-The last couple of posts - few and far between - have mostly been condensed summaries of everything I've done since the last post. I recently happened to re-read my [first post]({{ site.baseurl }}{% post_url 2017-09-02-initial-commit %}) (after someone ran into this site), and I was struck by how reflective and essayish it was, and how different it was from most of my posts since. Those have been mostly descriptive and record-keeping-ish. I think they're decent as update posts, but I'm not terribly interested in writing update posts, nor do I except anyone else is terribly interested in reading them.
+The last couple of posts - few and far between - have mostly been condensed summaries of everything I've done since the last post. I recently happened to re-read my [first post]({{ site.baseurl }}{% post_url 2017-09-02-initial-commit %}) (after someone ran into this site), and I was struck by how reflective and essayish it was, and how different it was from most of my posts since. Those have been mostly descriptive and record-keeping-ish. I think they're decent as update posts, but I'm not terribly interested in writing update posts, nor do I expect anyone else is terribly interested in reading them.
 
 In my first post, I argued my way into starting a blog. Naturally, this argument rested on a few assumptions, and one was that I'm naturally inclined towards logging:
 
