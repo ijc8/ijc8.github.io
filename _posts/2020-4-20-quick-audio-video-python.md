@@ -188,7 +188,7 @@ process = (
 for i in range(frames):
     print(f'{i / frames * 100}%')
     frame = np.random.random((width, height, 3))
-    process.stdin.write((frame * 255).astype(np.uint8).tobytes())
+    process.stdin.write((frame * 255).astype(np.uint8))
 
 process.stdin.close()
 process.wait()
@@ -233,7 +233,7 @@ try:
         in_bytes = in_process.stdout.read(width * height * 3)
         in_frame = np.frombuffer(in_bytes, np.uint8).reshape([height, width, 3])
         out_frame = 255 - in_frame  # Invert colors.
-        play_process.stdin.write(out_frame.astype(np.uint8).tobytes())
+        play_process.stdin.write(out_frame.astype(np.uint8))
 except (KeyboardInterrupt, BrokenPipeError):
     pass
 
@@ -277,7 +277,7 @@ for i in range(frames):
             r = np.random.random()
             x, y, t = col / width, row / height, i / frames
             frame[row, col] = exp_as_func()
-    process.stdin.write((frame * 255).astype(np.uint8).tobytes())
+    process.stdin.write((frame * 255).astype(np.uint8))
 
 process.stdin.close()
 process.wait()
@@ -313,7 +313,7 @@ Happy hacking!
 
 If there are multiple channels, `wave` and `PyAudio` expects the audio data to be interleaved. That is, first there's a sample from the first channel, the one from the second channel, and so on, until you start the next round with the next sample from the first channel. Each of these rounds is called a _frame_. If you have generated the audio for each channel in separate arrays, you can combine them like so:[^3]
 ```python
-interleaved = np.empty((left.size + right.size,), dtype=a.dtype)
+interleaved = np.empty((left.size + right.size,), dtype=left.dtype)
 interleaved[::2] = left  # even-indexed samples come from the left channel
 interleaved[1::2] = right  # odd-indexed samples come from the right channel
 ```
@@ -335,22 +335,34 @@ left, right = interleaved.reshape(-1, 2).T
 
 ## Odd-width audio
 
-If the sample size doesn't correspond to a built-in numpy type, the conversion requires a little more work. For example, this handles the 24-bit case, which is by far the most common non-power-of-2 width in audio:
+If the sample size doesn't correspond to a built-in numpy type, the conversion requires a little more work. For example, this handles the output in the 24-bit case, which is by far the most common (and [only?](https://en.wikipedia.org/wiki/Audio_bit_depth#Applications)) non-power-of-2 width in audio:
 ```python
 scaled = (audio * (2**23 - 1)).astype(np.int32)
-converted = (scaled >> np.array([0, 8, 16]) & 0xff).astype(np.uint8)
-out = converted.tobytes()
+out = (scaled[:, None] >> np.array([0, 8, 16]) & 0xff).astype(np.uint8)
 ```
-This snippet scales the audio to the signed 24-bit range, stores it as a 32-bit array, and extracts the first (least-significant) three bytes of each 32-bit sample.
+This snippet scales floating point audio to the signed 24-bit range, stores it as a 32-bit array, and extracts the first (least-significant) three bytes of each 32-bit sample.
 
-To go the other direction:
+To take in 24-bit input, storing it in a 32-bit array:
 ```python
-audio = np.frombytes(raw_24bit_audio, dtype=np.uint8).reshape(-1, 3)
+audio = np.frombuffer(raw_24bit_audio, dtype=np.uint8).reshape(-1, 3)
 converted = np.empty((audio.shape[0], 4), dtype=np.uint8)
 converted[:, :3] = audio
-converted[:, 4] = (audio[:, 3] >> 7) * 0xff  # sign extension
-converted = audio.view('<i32')
+converted[:, 3] = (audio[:, 2] >> 7) * 0xff  # sign extension
+converted = converted.view('<i4')
 ```
+This snippet preserves the literal value of each sample, but since the range is 2<sup>8</sup> times larger for 32-bit samples, the audio will seem much quieter unless you scale it appropriately. If you'd rather preserve the relative value of each sample, you can do:
+```python
+audio = np.frombuffer(raw_24bit_audio, dtype=np.uint8).reshape(-1, 3)
+converted = np.zeros((audio.shape[0], 4), dtype=np.uint8)
+converted[:, 1:] = audio
+converted = converted.view('<i4')
+```
+or more concisely
+```
+audio = np.frombuffer(raw_24bit_audio, dtype=np.uint8).reshape(-1, 3)
+converted = np.bitwise_or.reduce(audio << np.array([8, 16, 24]), dtype=np.int32, axis=1)
+```
+
 Several libraries exist to make this task even simpler and handle the special cases (and sometimes other formats) for you, such as [wavio](https://pypi.org/project/wavio/), [SoundFile](https://pypi.org/project/SoundFile/), and [scipy.io.wavfile](https://docs.scipy.org/doc/scipy-0.14.0/reference/io.html). You can also use Python with ffmpeg for audio conversion or acquisition, as described in the [Video section](#video).
 
 In case you were wondering, the `wave` module corrects for system endianness when [reading](https://github.com/python/cpython/blob/25fa3ecb98f2c038a422b19c53641fa8e3ef8e52/Lib/wave.py#L244) and [writing](https://github.com/python/cpython/blob/25fa3ecb98f2c038a422b19c53641fa8e3ef8e52/Lib/wave.py#L431).
