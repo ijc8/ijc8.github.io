@@ -506,12 +506,22 @@ function playRecording(recording) {
 
 function connect() {
   document.getElementById("status").innerHTML = "Connecting to server...";
-  socket = io(); // TODO add destination here
+  socket = io(document.getElementById("server-address").value);
   socket.on('connect', () => {
       document.getElementById("connect-box").hidden = true;
       document.getElementById("disconnect-box").hidden = false;
       document.getElementById("add-process-btn").hidden = true;;
       console.log("connected!");
+  });
+
+  socket.on('connect_error', () => {
+    document.getElementById("status").innerHTML = "Connection error.";
+    socket.close();
+  });
+
+  socket.on('connect_timeout', () => {
+    document.getElementById("status").innerHTML = "Connection timeout.";
+    socket.close();
   });
 
   // TODO refactor so that we can retrigger these events in replay.
