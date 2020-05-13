@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>kilobeat</title>
+  <script src="lib/codemirror/codemirror.js"></script>
+  <link rel="stylesheet" href="lib/codemirror/codemirror.css">
+  <script src="lib/codemirror/javascript.js"></script>
+
+  <script src="lib/codemirror/matchbrackets.js"></script>
+  <script src="lib/codemirror/trailingspace.js"></script>
+  <script src="lib/codemirror/closebrackets.js"></script>
+  <script src="lib/jshint.js"></script>
+  <script src="lib/codemirror/lint.js"></script>
+  <script src="lib/codemirror/javascript-lint.js"></script>
+  <link rel="stylesheet" href="lib/codemirror/lint.css">
+
+  <script src="https://unpkg.com/audioworklet-polyfill/dist/audioworklet-polyfill.js"></script>
+
+  <script src="livecode.js" type="module"></script>
+  <link rel="stylesheet" href="livecode.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div id="container">
+    <div id="unsupported">
+      <h2>Your browser does not support AudioWorklet</h2>
+      <p>
+        AudioWorklet is currently only available in Chrome 66+
+      </p>
+    </div>
+
+    <div id="test-zone">
+      <canvas id="test-canvas" width="400" height="300"></canvas>
+    </div>
+
+    <h1 id="status">Click anywhere to begin.</h1>
+    <div id="session-controls">
+      <div id="connect-box">
+        <input id="server-address" type="text" placeholder="Server address"/>
+        <button id="connect-btn">Connect</button>
+      </div>
+      <div id="disconnect-box" hidden>
+        <button id="disconnect-btn">Disconnect</button>
+      </div>
+
+      <div id="play-record-box">
+        <button id="play-btn">Play Recording</button>
+        <input id="play-input" type="file" name="name" style="display: none;"/>
+        <button id="toggle-recording-btn">Start Recording</button>
+      </div>
+    </div>
+
+    <div id="menu">
+      <div id="presets"></div>
+      <div id="clock-wrapper">
+        <span id="clock-icon">⏱️</span>
+        <input id="clock-display" type="number" value="0" readonly />
+      </div>
+      <div id="clock">
+      </div>
+    </div>
+    <div id="main">
+    </div>
+    <div id="add-process-btn">
+      <button>+ Process</button>
+    </div>
+  </div>
+</body>
+</html>
