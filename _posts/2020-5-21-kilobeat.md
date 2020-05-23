@@ -19,7 +19,7 @@ As the instrument might be unfamiliar, it comes with some presets (listed at the
 
 If all your friends are busy or you just want to try some things out, you can play in offline mode, which allows you to run around and play all the instruments yourself. And if you want to record a performance (online or offline), you can do that, too. The actual performance details (who did what when) are recorded, so the audio may differ on playback. This is sort of akin to a player piano recording the actions of a pianist, rather than recording the sound of the piano. On playback, the keys are struck again, which may sound slightly different than the last time. In the case of kilobeat, the difference may be more significant if players used randomness in their expressions---such recordings are naturally [aleatoric](https://en.wikipedia.org/wiki/Aleatoric_music).
 
-You can try out kilobeat [here](https://ijc8.me/kilobeat). At the moment, this requires a Chromium-based browser.
+You can try out kilobeat [here](https://ijc8.me/kilobeat) with Chrome or Firefox.[^edit-browser]
 
 The source is available on [GitHub](https://github.com/ijc8/kilobeat) under the [MIT license](https://github.com/ijc8/kilobeat/blob/master/LICENSE). Check out the [README](https://github.com/ijc8/kilobeat/blob/master/README.md) there for more technical details.
 
@@ -52,3 +52,5 @@ Thank _you_ for reading, and happy hacking!
 [^collab-livecode]: Check out [Troop](https://toplap.org/troop-a-collaborative-editor-for-live-coding/) and [Estuary](https://estuary.mcmaster.ca/), and let me know if there are others I should know about!
 
 [^floatbeat]: This variant of bytebeat practice is sometimes called "floatbeat".
+
+[^edit-browser]: _Edited 5/23:_ now works in Firefox. 🦊

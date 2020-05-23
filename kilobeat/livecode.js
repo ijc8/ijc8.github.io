@@ -14,7 +14,7 @@ let clockUpdate;
 let outputNode;
 
 let socket = null;
-let merger;
+let merger, delay;
 
 let field;
 let localIDs = 0;
@@ -24,6 +24,14 @@ let recordLog;
 let handlers = {};
 
 let selectedPlayer = 0;
+
+let statusText = {
+  offline: "You are offline. To play with others, join a server.",
+  connecting: "Connecting to server...",
+  connected: id => `Connected. You are player ${id}.`,
+  timeout: "Connection timeout.",
+  error: "Connection error.",
+}
 
 // For using Cmd vs. Ctrl keys:
 const isMac = CodeMirror.keyMap.default === CodeMirror.keyMap.macDefault;
@@ -87,7 +95,7 @@ const presets = [
   },
   // Note that Sawtooth and Square here have DC bias.
   {
-    name: "Sawtooth",
+    name: "Saw",
     code: `(t%.005)/.005`
   },
   {
@@ -161,7 +169,7 @@ function getNextChannel() {
 
 function stopAudio(id) {
   if (players[id].customNode !== undefined) {
-    merger.disconnect(players[id].customNode);
+    delay.disconnect(players[id].customNode);
     players[id].channel = null;
     players[id].customNode.disconnect();
     players[id].customNode = null;
@@ -237,7 +245,7 @@ function runAudioWorklet(id, workletUrl, processorName) {
     // by using currentFrame and giving every worklet the same offset from it.
     customNode.port.postMessage(getTime());
 
-    merger.connect(customNode);
+    delay.connect(customNode);
     customNode.connect(players[id].panner);
     customNode.connect(players[id].analyser);
     // TODO: may wish to do this earlier (or otherwise rethink this)
@@ -265,7 +273,6 @@ function addKeyCommandToButton(button, keyCommand) {
 
 function runCode(id) {
   // Trigger CSS animation.
-  // TODO debug hitching
   players[id].editorContainer.classList.add("ran");
   setTimeout(() => {
     players[id].editorContainer.classList.remove("ran");
@@ -287,9 +294,9 @@ function createEditor(id, isLocal) {
   nameBox.id = `p${id}-id`
   nameBox.classList.add('player-id');
   if (id === "me") {
-    nameBox.innerHTML = "You (p0)";
+    nameBox.innerText = "You (p0)";
   } else {
-    nameBox.innerHTML = `p${id}`;
+    nameBox.innerText = `p${id}`;
     if (isLocal) {
       const removeBtn = document.createElement("span");
       removeBtn.classList.add("remove-process");
@@ -505,22 +512,22 @@ function playRecording(recording) {
 }
 
 function connect() {
-  document.getElementById("status").innerHTML = "Connecting to server...";
+  document.getElementById("status").innerText = statusText.connecting;
   socket = io(document.getElementById("server-address").value);
   socket.on('connect', () => {
       document.getElementById("connect-box").hidden = true;
+      document.getElementById("add-process-btn").hidden = true;
       document.getElementById("disconnect-box").hidden = false;
-      document.getElementById("add-process-btn").hidden = true;;
       console.log("connected!");
   });
 
   socket.on('connect_error', () => {
-    document.getElementById("status").innerHTML = "Connection error.";
+    document.getElementById("status").innerText = statusText.error;
     socket.close();
   });
 
   socket.on('connect_timeout', () => {
-    document.getElementById("status").innerHTML = "Connection timeout.";
+    document.getElementById("status").innerText = statusText.timeout;
     socket.close();
   });
 
@@ -533,8 +540,8 @@ function connect() {
     startTime = Date.now() / 1000 - time;
     console.log('hello: I am', id, 'and there are', current_players);
     players[id] = players["me"];
-    document.getElementById("status").innerHTML = `Connected. You are player ${id}.`
-    document.getElementById("pme-id").innerHTML = `You (p${id})`
+    document.getElementById("status").innerText = statusText.connected(id);
+    document.getElementById("pme-id").innerText = `You (p${id})`;
     console.log(current_players);
     for (let {id, code, speaker} of current_players) {
       createPlayer(id, false);
@@ -542,7 +549,7 @@ function connect() {
       players[id].editor.getDoc().setValue(code);
       runCode(id);
       players[id].panner.setPosition(speaker.x, speaker.y, -0.5);
-      players[id].panner.setOrientation(Math.cos(speaker.angle), -Math.sin(speaker.angle), 1);
+      players[id].panner.setOrientation(Math.cos(speaker.angle), Math.sin(speaker.angle), 1);
     }
   });
 
@@ -566,12 +573,24 @@ function connect() {
   }
 }
 
+function disconnect() {
+  socket.disconnect(true);
+  resetPlayers();
+  localIDs = 0;
+  document.getElementById("status").innerText = statusText.offline;
+  document.getElementById("disconnect-box").hidden = true;
+  document.getElementById("connect-box").hidden = false;
+  document.getElementById("add-process-btn").hidden = false;
+}
+
 function audio_ready() {
-  document.getElementById("status").innerHTML = "You are offline. To play with others, join a server.";
+  document.getElementById("status").innerText = statusText.offline;
 
   // Later, might want to create a new merger to grow input channels dynamically,
   // rather than commiting to a max size here.
   merger = audio.createChannelMerger(8);
+  delay = audio.createDelay(128 / audio.sampleRate);
+  merger.connect(delay);
   outputNode = audio.createGain();
   outputNode.gain.value = 0.2;
   outputNode.connect(audio.destination);
@@ -591,13 +610,13 @@ function audio_ready() {
     if (!players[selectedPlayer]) return;
     let panner = players[selectedPlayer].panner;
     panner.setPosition(x, y, -0.5);
-    panner.setOrientation(Math.cos(angle), -Math.sin(angle), 1);
+    panner.setOrientation(Math.cos(angle), Math.sin(angle), 1);
     players[selectedPlayer].speaker = {x, y, angle};
   }
   field = new Field(document.getElementById("test-canvas"), callback);
 
   document.getElementById("connect-btn").addEventListener("click", connect);
-  document.getElementById("disconnect-btn").addEventListener("click", () => console.log("Disconnect: not implemented (just refresh)."));
+  document.getElementById("disconnect-btn").addEventListener("click", disconnect);
 
   // Setup presets.
   presets.forEach(preset => {
@@ -681,7 +700,7 @@ function audio_ready() {
     // We probably want a more general framework for these sort of intermittent updates.
     if (!players[id].isLocal || isPlaying) {
       players[id].panner.setPosition(x, y, -0.5);
-      players[id].panner.setOrientation(Math.cos(angle), -Math.sin(angle), 1);
+      players[id].panner.setOrientation(Math.cos(angle), Math.sin(angle), 1);
       players[id].speaker = {x, y, angle};
       field.render();
     }
