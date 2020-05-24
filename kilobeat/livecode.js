@@ -524,11 +524,13 @@ function connect() {
   socket.on('connect_error', () => {
     document.getElementById("status").innerText = statusText.error;
     socket.close();
+    socket = null;
   });
 
   socket.on('connect_timeout', () => {
     document.getElementById("status").innerText = statusText.timeout;
     socket.close();
+    socket = null;
   });
 
   // TODO refactor so that we can retrigger these events in replay.
@@ -575,12 +577,22 @@ function connect() {
 
 function disconnect() {
   socket.disconnect(true);
+  socket = null;
   resetPlayers();
+  resetClock();
   localIDs = 0;
   document.getElementById("status").innerText = statusText.offline;
   document.getElementById("disconnect-box").hidden = true;
   document.getElementById("connect-box").hidden = false;
   document.getElementById("add-process-btn").hidden = false;
+}
+
+function setVolume(frac) {
+  // Expects input in range [0, 1].
+  // Maps 0 to -72 dB, 1 to 0 dB.
+  const db = 72 * (frac - 1);
+  const gain = 10**(db/20)
+  outputNode.gain.value = gain;
 }
 
 function audio_ready() {
@@ -594,6 +606,10 @@ function audio_ready() {
   outputNode = audio.createGain();
   outputNode.gain.value = 0.2;
   outputNode.connect(audio.destination);
+  const volumeSlider = document.getElementById("volume-slider");
+  volumeSlider.value = 50;
+  setVolume(0.5);
+  volumeSlider.addEventListener('input', () => setVolume(volumeSlider.value / 100));
   // Position the listener at the origin.
   audio.listener.setPosition(0, 0, 0);
 
@@ -613,7 +629,7 @@ function audio_ready() {
     panner.setOrientation(Math.cos(angle), Math.sin(angle), 1);
     players[selectedPlayer].speaker = {x, y, angle};
   }
-  field = new Field(document.getElementById("test-canvas"), callback);
+  field = new Field(document.getElementById("space-canvas"), callback);
 
   document.getElementById("connect-btn").addEventListener("click", connect);
   document.getElementById("disconnect-btn").addEventListener("click", disconnect);
@@ -632,7 +648,12 @@ function audio_ready() {
   // Setup reset button.
   let resetButton = createButton("Reset");
   // Currently will *not* reset the timers in AudioWorkers.
-  resetButton.addEventListener("click", () => socket.emit("reset"));
+  resetButton.addEventListener("click", () => {
+    if (socket)
+      socket.emit("reset")
+    else
+      resetClock();
+  });
   document.getElementById("clock").appendChild(resetButton);
 
   // Setup add process button.
@@ -760,7 +781,6 @@ function audio_ready() {
       emit(selectedPlayer, "code", players[selectedPlayer].editor.getDoc().getValue());
       // TODO no magic indices
       const runButton = players[selectedPlayer].elements[2];
-      console.log('hey', runButton);
       runButton.classList.add("down");
       setTimeout(() => {
         if (runButton.classList.contains("down")) runButton.classList.remove("down");
