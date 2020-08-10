@@ -99,25 +99,26 @@ Using PyAudio's callback mode, you can register a function to generate new sampl
 ```python
 import pyaudio
 import numpy as np
+import time
 
 sample_rate = 44100
 buffer_size = 1024
-p = pyaudio.PyAudio()
 
+# Keep track of position to avoid discontinuity between chunks.
+t = 0
+def callback(in_data, frame_count, time_info, status):
+    global t
+    audio = np.sin(2*np.pi * (t + np.arange(frame_count))/sample_rate * 440)
+    t += frame_count
+    return (audio.astype(np.float32), pyaudio.paContinue)
+
+p = pyaudio.PyAudio()
 stream = p.open(format=pyaudio.paFloat32,
                 channels=1,
                 frames_per_buffer=buffer_size,
                 rate=sample_rate,
                 output=True,
                 stream_callback=callback)
-
-# Keep track of position to avoid discontinuity between chunks.
-t = 0
-def callback(in_data, frame_count, time_info, status):
-    audio = np.sin(2*np.pi * (t + np.arange(frame_count))/sample_rate * 440)
-    t += frame_count
-    return (data.astype(np.float32), pyaudio.PaContinue)
-
 stream.start_stream()
 
 try:
@@ -140,16 +141,18 @@ PyAudio also has a [blocking mode](https://people.csail.mit.edu/hubert/pyaudio/d
 To get audio input, tweak the example: add `input=True` when opening the stream, and do something interesting with `in_data` in the callback. This simple example plays what it records (use headphones when you try this or risk feedback).
 ```python
 import pyaudio
+import time
+
+def callback(in_data, frame_count, time_info, status):
+    return (in_data, pyaudio.paContinue)
 
 p = pyaudio.PyAudio()
-
-stream = p.open(channels=1,
+stream = p.open(format=pyaudio.paFloat32,
+                channels=1,
+                rate=44100,
                 input=True,
                 output=True,
                 stream_callback=callback)
-
-def callback(in_data, frame_count, time_info, status):
-    return (in_data, pyaudio.PaContinue)
 
 stream.start_stream()
 
@@ -367,9 +370,12 @@ Several libraries exist to make this task even simpler and handle the special ca
 
 In case you were wondering, the `wave` module corrects for system endianness when [reading](https://github.com/python/cpython/blob/25fa3ecb98f2c038a422b19c53641fa8e3ef8e52/Lib/wave.py#L244) and [writing](https://github.com/python/cpython/blob/25fa3ecb98f2c038a422b19c53641fa8e3ef8e52/Lib/wave.py#L431).
 
+---
+
+_Edited 2020-08-10 for errata in the section "Audio to/from hardware"._
+
 [^1]: This snippet is not strictly in the bytebeat mold, as it avails itself of luxuries such as sin and floating-point arithmetic.
 
 [^2]: Actually, the expression can use whatever it wants because it's being evaluated as Python, without restricting the namespace in any way. Obviously, this is not safe on untrusted input. A somewhat safer version might use [`ast.literal_eval()`](https://docs.python.org/3/library/ast.html#ast.literal_eval) (with substitution of the relevant variables, though this would still lack sin, cos, etc.) or [NumExpr](https://github.com/pydata/numexpr).
 
 [^3]: This is the most straightforward, readable, and fastest way to do it, but the alternative `interleaved = np.ravel((left, right), order='F')` is slightly more concise and convenient to use with more channels. You can find a whole catalogue of approaches to this tiny task [here](https://stackoverflow.com/questions/5347065/interweaving-two-numpy-arrays).
-
