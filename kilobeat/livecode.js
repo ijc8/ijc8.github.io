@@ -188,11 +188,12 @@ function getCode(userCode, processorName) {
   }
 
   function exportMath() {
+    // sin is omitted; see below for explanation.
     let names = ['abs', 'cbrt', 'clz32', 'imul', 'max', 'min', 'pow', 'sign', 'sqrt',
                  'exp', 'expm1', 'log', 'log1p', 'log10', 'log2',
                  'ceil', 'floor', 'fround', 'round', 'trunc',
                  'acos', 'acosh', 'asin', 'asinh', 'atan', 'atanh', 'atan2',
-                 'cos', 'cosh', 'hypot', 'sin', 'sinh', 'tan', 'tanh'];
+                 'cos', 'cosh', 'hypot', /*'sin',*/ 'sinh', 'tan', 'tanh'];
     let aliases = {"rand": "random", "e": "E", "pi": "PI"};
     return names.map(name => `let ${name} = Math.${name}`)
                 .concat(Object.entries(aliases).map(([alias, name]) => `let ${alias} = Math.${name}`))
@@ -212,15 +213,15 @@ function getCode(userCode, processorName) {
   let sr = sampleRate;
   let dt = 1/sampleRate;
 
+  // Wrap Math.sin so we're not monkey-patching globally.
+  let sin = Math.sin.bind({});
+
   // Phase accumulation.
   // Usage: acc[i](delta) accumulates its argument. Each acc[i] is a separate accumulator.
   //        sin[i](phase) is like sin(phase), but with phase-accumulation between calls. Might change the name to 'osc'.
-  let acc = [];
-  for (let i = 0; i < 8; i++) {
-    let c = 0;
-    let f = (x) => { c += x; return c };
-    acc.push(f);
-    sin[i] = (phase) => sin(f(phase));
+  let acc = new Array(8).fill(0);
+  for (let i = 0; i < acc.length; i++) {
+    sin[i] = (phase) => sin(acc[i] += phase);
   }
 
   function choice(...choices) {
