@@ -28,13 +28,18 @@ main {
     }
 }
 .posts {
-    list-style: none;
     padding: 0;
-    > li {
+    margin-top: 1em;
+    width: unset;
+    tr {
         line-height: 1.75;
-        span {
+        td {
+            border: none;
+            padding: 0;
+        }
+        td:first-child {
             color: $meta-color;
-            margin-right: 1.5rem;
+            padding-right: 1.5rem;
             font-size: $small-font-size;
         }
         a {

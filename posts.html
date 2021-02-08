@@ -3,9 +3,11 @@ layout: default
 ---
 
 <div class="home">
-    <ul class="posts">
-        {% for post in site.posts %}
-        <li><span>{{ post.date | date: site.date_format }}</span><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
-        {% endfor %}
-    </ul>
+    <table class="posts">
+        <tbody>
+            {% for post in site.posts %}
+            <tr><td>{{ post.date | date: site.date_format }}</td><td><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>

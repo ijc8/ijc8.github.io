@@ -25,5 +25,6 @@
 			// disable editor suggestions based on previous words
 			"editor.quickSuggestions": false,
 		},
+		"cSpell.enabled": true,
 	}
 }
