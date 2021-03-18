@@ -1,5 +1,4 @@
 // Starter code and styling from https://github.com/acarabott/audio-dsp-playground by Arthur Carabott (MIT License).
-/* global CodeMirror, AudioWorkletNode */
 import { Scope } from "./Scope.js";
 
 let audio;
@@ -241,7 +240,7 @@ function getCode(userCode, processorName) {
       for (let i = 0; i < numFrames; i++) {
         ${generateNames()}
         let sample = ${userCode};
-        out[i] = Math.max(-1, Math.min(1, sample));
+        out[i] = Math.max(-1, Math.min(1, sample)) || 0;
         t += 1 / sampleRate;
       }
       return true;
