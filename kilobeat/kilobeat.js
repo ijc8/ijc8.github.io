@@ -1,3 +1,4 @@
+/* global CodeMirror, AudioWorkletNode */
 // Starter code and styling from https://github.com/acarabott/audio-dsp-playground by Arthur Carabott (MIT License).
 import { Scope } from "./Scope.js";
 
@@ -202,12 +203,9 @@ function getCode(userCode, processorName) {
   return `
   let t = 0;
   ${exportMath()}
-  let x = 0, y = 0, z = 0;
+  // Variables for the player to use and however they like.
+  let i = 0, x = 0, y = 0, z = 0;
   let now = ${getTime()};
-
-  // These are still up for debate.
-  let s = x => sin(2*pi*x);
-  let r = rand;
 
   let sr = sampleRate;
   let dt = 1/sampleRate;
@@ -217,7 +215,7 @@ function getCode(userCode, processorName) {
 
   // Phase accumulation.
   // Usage: acc[i](delta) accumulates its argument. Each acc[i] is a separate accumulator.
-  //        sin[i](phase) is like sin(phase), but with phase-accumulation between calls. Might change the name to 'osc'.
+  //        sin[i](phase) is like sin(phase), but with phase-accumulation between calls (like osc~ in Pd/MSP).
   let acc = new Array(8).fill(0);
   for (let i = 0; i < acc.length; i++) {
     sin[i] = (phase) => sin(acc[i] += phase);
@@ -340,6 +338,7 @@ function createEditor(id, isLocal) {
     tabSize: 2,
     readOnly: !isLocal,
     scrollbarStyle: null,
+    matchBrackets: true,
   });
   // TODO: Check if this is still necessary.
   setTimeout(() => editor.refresh(), 0);
@@ -473,6 +472,9 @@ function main() {
         });
       }
     };
+
+    document.getElementById("connect-btn").addEventListener("click", connect);
+    document.getElementById("disconnect-btn").addEventListener("click", disconnect);
 
     audio = new AudioContext();
     resumeContextOnInteraction(audio);
@@ -652,9 +654,6 @@ function audio_ready() {
   }
   field = new Field(document.getElementById("space-canvas"), callback);
 
-  document.getElementById("connect-btn").addEventListener("click", connect);
-  document.getElementById("disconnect-btn").addEventListener("click", disconnect);
-
   // Setup presets.
   presets.forEach(preset => {
     const button = createButton(preset.name);
@@ -733,8 +732,8 @@ function audio_ready() {
     if (!players[id].isLocal || isPlaying) {
       let doc = players[id].editor.getDoc();
       doc.setValue(content);
-      doc.setCursor(cursor);
-      doc.setSelections(selections);
+      doc.setCursor(cursor, null, {scroll: false});
+      doc.setSelections(selections, 0, {scroll: false});
     }
   });
 
