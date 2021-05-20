@@ -5,9 +5,70 @@ permalink: /projects/
 ---
 
 <a id="index"></a>
-2019 · [2018](#2018-) · [2017](#2017-) · [2016](#2016-) · [2015](#2015-) · [and beyond](#projects-from-the-bc-before-college-era-)
+2021 · [2020](#2020-) · [2019](#2019-) · [2018](#2018-) · [2017](#2017-) · [2016](#2016-) · [2015](#2015-) · [and beyond](#projects-from-the-bc-before-college-era-)
 
-# _2019_
+# _2021_
+
+## Paintwerk
+
+For the 2021 [Moog Hackathon](https://guthman.gatech.edu/moog-hackathon), I created **Paintwerk**, a synth-doodling instrument. Paintwerk augments the [Moog Werkstatt](https://www.moogmusic.com/products/werkstatt-01-cv-expander), an analog synthesizer, with a drawing interface whereby you can sketch the curves for different synth parameters using a computer, phone, or tablet (anything with a reasonably modern web browser). Paintwerk plays through the [parameter curves](https://en.wikipedia.org/wiki/Mix_automation), virtually turning the knobs on the synthesizer by controlling voltages.
+
+Players can paint the VCA, VCF, VCO, and LFO synth parameters, each of which is represented by a different color. They can also "mix" the colors to paint multiple parameters at once. Multiple people can draw on the same canvas at the same time from different devices. In addition to drawing curves, players can also play with the physical synth controls while Paintwerk loops through the drawing.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aklhHWN1Uf8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>{: style="display: block; margin: auto"}
+
+Paintwerk was awarded honorary mention as "Most Collaborative Instrument". After the competition, I exhibited the project at the [Guthman Fair](https://guthman.gatech.edu/Guthman-Fair-2021); you can see the poster, which gives some more details about Paintwerk and its implementation, below.
+
+![Poster about Paintwerk]({{ site.baseurl }}/images/paintwerk.svg)
+
+You can find the source code for Paintwerk [here](https://github.com/ijc8/paintwerk). Check out the other hackathon projects [here](https://guthman.gatech.edu/moog-hackathon)!
+
+## Return True
+
+A funky tune. [Listen here.](https://soundcloud.com/ijc8/return-true)
+
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/983509225&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/ijc8" title="ijc" target="_blank" style="color: #cccccc; text-decoration: none;">ijc</a> · <a href="https://soundcloud.com/ijc8/return-true" title="Return True" target="_blank" style="color: #cccccc; text-decoration: none;">Return True</a></div>
+
+# _2020_ [⬏](#index)
+
+## kilobeat
+In Spring 2020 at MIT, I built a little platform for low-level collaborative livecoding called `kilobeat`. Unlike most livecoding environments (but like the [bytebeat](http://canonical.org/~kragen/bytebeat/) practices that inspired it), players in kilobeat generate music by writing short expressions that generate audio samples directly (hence "low-level"). Everyone can see everyone else's code and activity, and players may copy or depend directly on each other's output. I originally created kilobeat for the course [SOUND: PAST & FUTURE](http://spf.media.mit.edu/) and the [MIT laptop ensemble (FaMLE)](https://musictech.mit.edu/MLE) in Spring 2020, but it lives on and continues to receive occasional fixes and enhancements.
+
+You can read more about kilobeat [here]({% post_url 2020-5-21-kilobeat %}), play with it live [here]({{ site.baseurl }}/kilobeat), and check out the source code [here](https://github.com/ijc8/kilobeat).
+
+![Screenshot of kilobeat]({{ site.baseurl }}/images/kilobeat.png)
+
+## NotePad
+
+In Spring 2020, Mergen Nachin and I took 6.835 (Intelligent Multimodal User Interfaces) and worked together on our final project, NotePad. NotePad is a system for multimodal music composition: the user can enter musical ideas into the system by writing them down (mouse/tablet input: drawing notes on musical staves) or by playing them (audio input: clapping a rhythm or singing a melody), and then can see (visual output: notes on staves) or hear (audio output: synthesizing the parts). For notation anslysis, we adapted the [$P point-cloud recognizer](https://depts.washington.edu/acelab/proj/dollar/pdollar.html) to recognize musical symbols from a small set of examples, after some trial and error with Kivy's multi-stroke gesture recognizer. For audio analysis, we used [Essentia](http://essentia.upf.edu/) for audio analysis. We used [Kivy](https://kivy.org) for graphical I/O and [pyAudio](https://people.csail.mit.edu/hubert/pyaudio/) + [FluidSynth](https://www.fluidsynth.org/) for audio I/O. You can find the NotePad source code [here](https://github.com/ijc8/notepad) and see the final demo below:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4S_vnSqtDvA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>{: style="display: block; margin: auto"}
+
+## Compositions
+
+**Arrows** is a composition I wrote for the class [SOUND: PAST & FUTURE](http://spf.media.mit.edu/). It is inspired by Iannis Xenakis, particularly a remark from _[Formalized Music](https://monoskop.org/images/7/74/Xenakis_Iannis_Formalized_Music_Thought_and_Mathematics_in_Composition.pdf)_: "a composer may create the reversibility of the phenomena of masses, and, apparently, invert Eddington's 'arrow of time.'"
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WzsOeIe-S30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>{: style="display: block; margin: auto"}
+
+The process in _Arrows_ begins with a single, unwavering sine tone. It splits into two, with each descedant warped by a random affine transform that tweaks the tone's start and end times and frequencies. This bifurcation repeats with each tone in each generation. The tones proliferate and warp, and entropy increases. _Arrows_ runs this process forwards for several generations and waits until the last tones have died out; but it plays the process _backwards_, reversing the arrow of time for the listener and decreasing entropy as tones realign and unify, finally converging on their progenitor. I composed _Arrows_ as a Python program, generating the audio and video ([relevant post]({% post_url 2020-04-20-quick-audio-video-python %})) from the same random seed.
+
+**Cluttered Desks** is a composition that Virgil B., Terrence G., and I wrote for MUSI 6003 (Music Technology History & Repertoire) at Georgia Tech. It is inspired by Paul Lansky's [Table's Clear](https://www.youtube.com/watch?v=xbmV4xXwsAI), and it is composed out of samples recorded from our living spaces and sythesized sounds.
+
+<audio controls src="{{ site.baseurl }}/static/Cluttered_Desks.wav"></audio>{: style="display: block; margin: auto"}
+
+## Reel Life
+
+[Play with tape machines in your browser.](https://reel-life.github.io/)
+
+Play, pause, speed up, slow down, wax on, wax off. Duplicate tapes for phasing fun. Play backwards to check for secret messages.
+
+Starter tapes included, and you can record or upload your own!
+
+[![Screenshot of Reel Life]({{ site.baseurl }}/images/reel_life.png)](https://reel-life.github.io/)
+
+Group project with Nimita D., Mason M., and Tim M.
+
+# _2019_ [⬏](#index)
 
 ## Fall Compositions
 
@@ -26,7 +87,7 @@ I also composed a tune for the jazz combo I play with, called "Wideband". The le
 For my 6.115 final project, I built a multi-effects processor using the PSoC 5LP. This featured a waveform visualizer (effectively an audio-rate oscilloscope), a spectrum analyzer, and most importantly, a three-slot DSP chain with a variety of effects and parameters. The processor was controlled by touchscreen and several rotary encoders, and used the PSoC's built-in analog features to get samples in and audio. For performance, the effects were written in C using fixed-point arithmetic.
 
 Here's a demo showing off the system (complete with attractive cardboard housing) and a few effects:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VpB2HSXI5Eg" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VpB2HSXI5Eg" frameborder="0" allowfullscreen></iframe>{: style="display: block; margin: auto"}
 
 ## Musical Tetris
 
@@ -45,7 +106,7 @@ We built two demos to demonstrate our system's functionality:
 1. Users stand along five radial lines from a circle; each can move closer or farther from the center to control the volume of a different stem (part) of a playing track in a DAW. Additionally, some tracks have different variants; the playing variant is determined by the emotion displayed by a user in front of a camera. This demo can be seen in the video below.
 2. People stand around the LIDAR and move freely. Each person corresponds to a sustained note; as they move around the LIDAR, pitch changes smoothly, with distance from the LIDAR determining volume. This mapping allows for melody by individual motion, harmony by group motion, and enables a kind of physical voice-leading. (To avoid an abrupt transition when wrapping at 2π radians, I used [Shepard tones](https://en.wikipedia.org/wiki/Shepard_tone) for the sustained notes.)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/NCvj4RVfzuY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NCvj4RVfzuY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>{: style="display: block; margin: auto"}
 
 Ultimately, our project [won 2nd place overall](http://mithackingarts.com/2018-hackathon-winners).
 
@@ -89,17 +150,17 @@ Our system supported MIDI keyboard and microphone as input methods (the latter v
 ## Interactive Music Systems
 I don't usually include regular homework from classes here, but the problem sets in Interactive Music Systems allowed for some pretty fun and creative submissions, so I'll make an exception.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jRwrGtsot1k" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jRwrGtsot1k" frameborder="0" allowfullscreen></iframe>{: style="display: block; margin: auto"}
 
 The magic harp, unlike other psets, was controlled by a [Leap Motion](https://www.leapmotion.com/) controller, allowing the user to play a "magic harp" using all ten fingers. My submission included a variety of scales and harp configurations, both of which could be chosen via hand gestures.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/BRnzdoO2Z4s" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BRnzdoO2Z4s" frameborder="0" allowfullscreen></iframe>{: style="display: block; margin: auto"}
 
 This was a keyboard-based clone of Guitar Hero's core gameplay. My submission was distinctive for its 3D projection of upcoming notes.
 
 (My terrible performance in the video is, uh, definitely intentional. Yep, just showing off all the functionality...)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FNQM-CpUR6U" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FNQM-CpUR6U" frameborder="0" allowfullscreen></iframe>{: style="display: block; margin: auto"}
 
 A mouse-controlled arpeggiator with some neat visuals and a few built-in chord progressions and basslines. It allowed the user to change the MIDI instrument for each part (lead, bass, and drums).
 
@@ -342,7 +403,7 @@ Other notable features:
 - When the emulator is run standalone, it only creates a window (needed for the monitor and keyboard peripherals) when and if it has to.
 
 Video of the project in action (and me being bad at snake):
-<iframe width="560" height="315" src="https://www.youtube.com/embed/t4n3NFtjXWI" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/t4n3NFtjXWI" frameborder="0" allowfullscreen></iframe>{: style="display: block; margin: auto"}
 
 It's available on Github [here](https://github.com/ijc8/DCPU-16).
 
