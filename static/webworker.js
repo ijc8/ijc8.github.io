@@ -12,8 +12,8 @@ function write(output) {
     return output.length
 }
 
-function show(url) {
-    self.postMessage({ url })
+function show(type, url) {
+    self.postMessage({ type, url })
 }
 
 // Stand-in for `time.sleep`, which does not work.
@@ -27,12 +27,23 @@ function spin(seconds) {
 // returns a coroutine if `source` contains a top-level await, and None otherwise.
 
 const setupCode = `
+import array
 import ast
+import base64
 import contextlib
 import io
 import js
+import sys
 import time
 import traceback
+
+# HACK: Prevent 'wave' from breaking because audioop is not included with pyodide.
+import types
+audioop = types.ModuleType('audioop')
+sys.modules['audioop'] = audioop
+audioop.byteswap = lambda data, width: data
+
+import wave
 
 time.sleep = js.spin
 
@@ -43,20 +54,51 @@ class JSWriter(io.TextIOBase):
 import pyodide
 
 def setup_matplotlib():
-    import base64
-    from io import BytesIO
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
 
     def show():
-        buf = BytesIO()
+        buf = io.BytesIO()
         plt.savefig(buf, format='png')
         img = 'data:image/png;base64,' + base64.b64encode(buf.getvalue()).decode('utf-8')
-        js.show(img)
+        js.show("img", img)
         plt.clf()
 
     plt.show = show
+
+def convert_audio(data):
+    try:
+        import numpy as np
+        is_numpy = isinstance(data, np.ndarray)
+    except ImportError:
+        is_numpy = False
+    if is_numpy:
+        if len(data.shape) == 1:
+            channels = 1
+        if len(data.shape) == 2:
+            channels = data.shape[0]
+            data = data.T.ravel()
+        else:
+            raise ValueError("Too many dimensions (expected 1 or 2).")
+        return ((data * (2**15 - 1)).astype("<h").tobytes(), channels)
+    else:
+        data = array.array('h', (int(x * (2**15 - 1)) for x in data))
+        if sys.byteorder == 'big':
+            data.byteswap()
+        return (data.tobytes(), 1)
+
+def show_audio(samples, rate):
+    bytes, channels = convert_audio(samples)
+    buf = io.BytesIO()
+    with wave.open(buf, mode='wb') as w:
+        w.setnchannels(channels)
+        w.setframerate(rate)
+        w.setsampwidth(2)
+        w.setcomptype('NONE', 'NONE')
+        w.writeframes(bytes)
+    audio = 'data:audio/wav;base64,' + base64.b64encode(buf.getvalue()).decode('utf-8')
+    js.show("audio", audio)
 
 async def run(source):
     out = JSWriter()
@@ -67,7 +109,7 @@ async def run(source):
             if "matplotlib" in imports:
                 setup_matplotlib()
             code = compile(source, "<string>", "exec", ast.PyCF_ALLOW_TOP_LEVEL_AWAIT)
-            result = eval(code, {})
+            result = eval(code, {"show_audio": show_audio})
             if result:
                 await result
         except:

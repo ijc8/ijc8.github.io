@@ -22,8 +22,6 @@ for i in range(10):
 ```
 {: class="runnable"}
 
-TODO: why aren't top-levels imports visible within functions?
-
 ```python
 import matplotlib.pyplot as plt
 print("Here's a sweet plot:")
@@ -31,6 +29,13 @@ plt.plot([1,2,3])
 plt.tight_layout()
 plt.show()
 print("Yup, that sure was a plot.")
+```
+{: class="runnable"}
+
+```python
+import math
+sine_wave = [math.sin(2*math.pi*440*i/44100) for i in range(44100)]
+show_audio(sine_wave, 44100)
 ```
 {: class="runnable"}
 
@@ -159,9 +164,12 @@ function runScript(script, output) {
                 pre.textContent = e.data.output
                 output.appendChild(pre)
             } else if (e.data.url) {
-                const img = document.createElement("img")
-                img.src = e.data.url
-                output.appendChild(img)
+                const el = document.createElement(e.data.type)
+                el.src = e.data.url
+                if (e.data.type === "audio") {
+                    el.controls = true
+                }
+                output.appendChild(el)
             } else {
                 resolve(e.data)
             }
@@ -213,5 +221,5 @@ class CodeBox {
 
 const codeboxes = [...document.querySelectorAll(".runnable.language-python")].map(el => new CodeBox(el))
 
-main();
+main()
 </script>
