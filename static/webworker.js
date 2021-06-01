@@ -16,7 +16,7 @@ function show(type, url) {
     self.postMessage({ type, url })
 }
 
-// Stand-in for `time.sleep`, which does not work.
+// Stand-in for `time.sleep`, which does not actually sleep.
 // To avoid a busy loop, instead import asyncio and await asyncio.sleep().
 function spin(seconds) {
     const time = performance.now() + seconds * 1000
@@ -33,11 +33,12 @@ import base64
 import contextlib
 import io
 import js
+import pyodide
 import sys
 import time
 import traceback
 
-# HACK: Prevent 'wave' from breaking because audioop is not included with pyodide.
+# HACK: Prevent 'wave' import from failing because audioop is not included with pyodide.
 import types
 audioop = types.ModuleType('audioop')
 sys.modules['audioop'] = audioop
@@ -47,11 +48,10 @@ import wave
 
 time.sleep = js.spin
 
+# For redirecting stdout and stderr later.
 class JSWriter(io.TextIOBase):
     def write(self, s):
         return js.write(s)
-
-import pyodide
 
 def setup_matplotlib():
     import matplotlib
@@ -66,6 +66,21 @@ def setup_matplotlib():
         plt.clf()
 
     plt.show = show
+
+def show_image(data):
+    from PIL import Image
+    buf = io.BytesIO()
+    Image.fromarray(data).save(buf, format='png')
+    img = 'data:image/png;base64,' + base64.b64encode(buf.getvalue()).decode('utf-8')
+    js.show("img", img)
+
+def show_animation(frames, duration=100, format="apng", loop=0):
+    from PIL import Image
+    buf = io.BytesIO()
+    img, *imgs = [Image.fromarray(frame) for frame in frames]
+    img.save(buf, format='png' if format == "apng" else format, save_all=True, append_images=imgs, duration=duration, loop=0)
+    img = f'data:image/{format};base64,' + base64.b64encode(buf.getvalue()).decode('utf-8')
+    js.show("img", img)
 
 def convert_audio(data):
     try:
@@ -109,7 +124,7 @@ async def run(source):
             if "matplotlib" in imports:
                 setup_matplotlib()
             code = compile(source, "<string>", "exec", ast.PyCF_ALLOW_TOP_LEVEL_AWAIT)
-            result = eval(code, {"show_audio": show_audio})
+            result = eval(code, {"show_image": show_image, "show_animation": show_animation, "show_audio": show_audio})
             if result:
                 await result
         except:
