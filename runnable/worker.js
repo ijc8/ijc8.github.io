@@ -12,8 +12,8 @@ function write(output) {
     return output.length
 }
 
-function show(type, url) {
-    self.postMessage({ type, url })
+function show(type, url, attrs) {
+    self.postMessage({ type, url, attrs: attrs?.toJs() })
 }
 
 // Stand-in for `time.sleep`, which does not actually sleep.
@@ -67,20 +67,22 @@ def setup_matplotlib():
 
     plt.show = show
 
-def show_image(data):
+def show_image(image, **attrs):
     from PIL import Image
+    if not isinstance(image, Image.Image):
+        image = Image.fromarray(image)
     buf = io.BytesIO()
-    Image.fromarray(data).save(buf, format='png')
-    img = 'data:image/png;base64,' + base64.b64encode(buf.getvalue()).decode('utf-8')
-    js.show("img", img)
+    image.save(buf, format='png')
+    data = 'data:image/png;base64,' + base64.b64encode(buf.getvalue()).decode('utf-8')
+    js.show("img", data, attrs)
 
-def show_animation(frames, duration=100, format="apng", loop=0):
+def show_animation(frames, duration=100, format="apng", loop=0, **attrs):
     from PIL import Image
     buf = io.BytesIO()
-    img, *imgs = [Image.fromarray(frame) for frame in frames]
+    img, *imgs = [frame if isinstance(frame, Image.Image) else Image.fromarray(frame) for frame in frames]
     img.save(buf, format='png' if format == "apng" else format, save_all=True, append_images=imgs, duration=duration, loop=0)
     img = f'data:image/{format};base64,' + base64.b64encode(buf.getvalue()).decode('utf-8')
-    js.show("img", img)
+    js.show("img", img, attrs)
 
 def convert_audio(data):
     try:
@@ -115,6 +117,14 @@ def show_audio(samples, rate):
     audio = 'data:audio/wav;base64,' + base64.b64encode(buf.getvalue()).decode('utf-8')
     js.show("audio", audio)
 
+# HACK: Prevent 'wave' import from failing because audioop is not included with pyodide.
+import types
+embed = types.ModuleType('embed')
+sys.modules['embed'] = embed
+embed.image = show_image
+embed.animation = show_animation
+embed.audio = show_audio
+
 async def run(source):
     out = JSWriter()
     with contextlib.redirect_stdout(out), contextlib.redirect_stderr(out):
@@ -123,8 +133,10 @@ async def run(source):
             await js.pyodide.loadPackagesFromImports(source)
             if "matplotlib" in imports:
                 setup_matplotlib()
+            if "embed" in imports:
+                await js.pyodide.loadPackagesFromImports("import numpy, PIL")
             code = compile(source, "<string>", "exec", ast.PyCF_ALLOW_TOP_LEVEL_AWAIT)
-            result = eval(code, {"show_image": show_image, "show_animation": show_animation, "show_audio": show_audio})
+            result = eval(code, {})
             if result:
                 await result
         except:
