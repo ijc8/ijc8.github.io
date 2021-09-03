@@ -1,7 +1,7 @@
-importScripts('https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js');
+importScripts('https://cdn.jsdelivr.net/pyodide/v0.18.0/full/pyodide.js');
 
 (async () => {
-    await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.17.0/full/' })
+    self.pyodide = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.18.0/full/' })
     // NOTE: We intentionally avoid runPythonAsync here because we don't want this to pre-load extra modules like matplotlib.
     self.pyodide.runPython(setupCode)
     self.postMessage(true)  // Inform the main thread that we finished loading.
@@ -37,13 +37,6 @@ import pyodide
 import sys
 import time
 import traceback
-
-# HACK: Prevent 'wave' import from failing because audioop is not included with pyodide.
-import types
-audioop = types.ModuleType('audioop')
-sys.modules['audioop'] = audioop
-audioop.byteswap = lambda data, width: data
-
 import wave
 
 time.sleep = js.spin
