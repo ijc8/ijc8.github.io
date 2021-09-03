@@ -4,14 +4,33 @@ title:     Research
 permalink: /research/
 ---
 
-BackTrack
----
+# Publications
+
+**Composing the Network with Streams** --- [AM 2021](https://audiomostly.com/2021/) --- IWIS Best Poster Award  
+_**Ian Clester**, Jason Freeman_ --- [pdf](/static/composing-the-network-with-streams.pdf), [video](https://www.youtube.com/watch?v=F2V-n4nsLgM)
+
+**kilobeat: low-level collaborative livecoding** --- [WAC 2021](https://webaudioconf2021.com/)  
+_**Ian Clester**_ --- [pdf](https://webaudioconf2021.com/wp-content/uploads/2021/06/kilobeat.pdf), [video](https://youtu.be/0QaM5xgTfEM)
+
+**Robotic Grasping of Fully-Occluded Objects using RF Perception** --- [ICRA 2021](https://www.ieee-icra.org/)  
+_Tara Boroushaki, Junshan Leng, **Ian Clester**, Alberto Rodriguez, Fadel Adib_ --- [pdf](https://arxiv.org/pdf/2012.15436.pdf), [video](https://www.youtube.com/watch?v=ZAzeYPcTM78)
+
+# Projects
+
+<!--
+## Aleatora
+TODO
+
+## EarSketch
+TODO
+-->
+
+## BackTrack
 BackTrack (Backscatter Tracker) is a system for RFID localization I developed in the [Signal Kinetics](https://www.media.mit.edu/groups/signal-kinetics/overview/) group under [Fadel Adib](https://www.mit.edu/~fadel/), building on the lab's work on [RFind](https://www.media.mit.edu/projects/rfid-localization/overview/) and [TurboTrack](https://www.media.mit.edu/projects/turbotrack-3d-backscatter-localization-for-fine-grained/overview/). RFID tags are normally used to determine the identity of people and goods, but this system enables determining their position in space as well. RFID tags are particularly useful as localization targets due to their low cost, ubiquity, and battery-free operation. I built a frequency-hopping system that provided higher framerates while requiring lower sampling rates, compared to prior systems, with the goal of exploring and enhancing the feasibility of RFID localization as an input for interactive applications.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ig7wVQ9mWcU?cc_load_policy=1" frameborder="0" allowfullscreen></iframe>{: style="display: block; margin: auto"}
 
-ConcertCue
----
+## ConcertCue
 ConcertCue is a system for streaming synchronized program notes during a live musical performance, with the goal of enriching the concert-going experience with text and images designed to aid in musical appreciation and understanding. I worked on this project with Professor [Eran Egozy](https://mta.mit.edu/person/eran-egozy) and Diane Zhou throughout the 2018-2019 academic year.
 
 Among other things, this work involved making improvements to the Director (the interface used by the human operator to keep ConcertCue in sync with the live performance) and doing the work necessary to operate ConcertCue at a few concerts with the [BSO](https://www.bso.org/) (and [one concert all the way over at Michigan Tech!](https://events.mtu.edu/event/new_music_for_a_new_year_music_of_the_up)).
@@ -22,8 +41,7 @@ The project code isn't currently publicly available, but the web application can
 
 ![]({{ site.baseurl }}/images/concertcue.jpg "ConcertCue in action")
 
-RISC-V Formal Semantics
----
+## RISC-V Formal Semantics
 RISC-V is an open instruction set architecture designed to be practical. Basically, it's a cool open standard that also aims for practicality and extensibility.
 
 From Spring 2017 through IAP 2019, I worked with Professor [Adam Chlipala](http://adam.chlipala.net) and [Thomas Bourgeat](http://www.csail.mit.edu/user/3875) to develop a formal, friendly, and
