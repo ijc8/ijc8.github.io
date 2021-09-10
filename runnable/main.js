@@ -51,8 +51,13 @@ class CodeBox {
         this.editor = ace.edit(editorContainer, {
             maxLines: 30,
         });
-        this.editor.setTheme("ace/theme/chrome");
-        this.editor.session.setMode("ace/mode/python");
+        this.editor.setTheme("ace/theme/chrome")
+        this.editor.session.setMode("ace/mode/python")
+        this.editor.commands.addCommand({
+            name: "run",
+            bindKey: { win: "Ctrl-Enter", mac: "Command-Enter" },
+            exec: () => this.run(),
+        })
 
         this.button = document.createElement("button")
         this.button.classList.add("run")
