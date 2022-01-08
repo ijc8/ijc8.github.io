@@ -20,10 +20,12 @@ _Tara Boroushaki, Junshan Leng, **Ian Clester**, Alberto Rodriguez, Fadel Adib_ 
 <!--
 ## Aleatora
 TODO
+-->
 
 ## EarSketch
-TODO
--->
+[EarSketch](https://gtcmt.gatech.edu/earsketch) is a platform for making music with code. By providing a free, web-based environment with a large sample library and an introductory CS curriculum, it aims to empower students to create music and write programs for themselves using Python or JavaScript. I develop EarSketch in the [Computational Music for All](https://gtcmt.gatech.edu/computational-music-for-all) lab under [Jason Freeman](https://distributedmusic.gatech.edu/jason/); my work has included overhauling much of the interface and implementation of EarSketch during the move from Angular 1 to React and from JS to TypeScript. Try it out [here](https://earsketch.gatech.edu/earsketch2)!
+
+![]({{ site.baseurl }}/images/earsketch.png "EarSketch")
 
 ## BackTrack
 BackTrack (Backscatter Tracker) is a system for RFID localization I developed in the [Signal Kinetics](https://www.media.mit.edu/groups/signal-kinetics/overview/) group under [Fadel Adib](https://www.mit.edu/~fadel/), building on the lab's work on [RFind](https://www.media.mit.edu/projects/rfid-localization/overview/) and [TurboTrack](https://www.media.mit.edu/projects/turbotrack-3d-backscatter-localization-for-fine-grained/overview/). RFID tags are normally used to determine the identity of people and goods, but this system enables determining their position in space as well. RFID tags are particularly useful as localization targets due to their low cost, ubiquity, and battery-free operation. I built a frequency-hopping system that provided higher framerates while requiring lower sampling rates, compared to prior systems, with the goal of exploring and enhancing the feasibility of RFID localization as an input for interactive applications.
