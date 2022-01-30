@@ -5,11 +5,11 @@ subtitle: "the kitchen sink in the browser"
 date: 2021-06-01 23:10:00 -0400
 ---
 
-I sometimes write posts [that]({% post_url 2018-08-01-unix-utility-of-the-day-xxd %}) [include]({% post_url 2020-4-20-quick-audio-video-python %}) [code]({% post_url 2020-5-21-kilobeat %}). This is nice because it allows me to describe something very precisely, yet approachably: I can _show_ the reader exactly what I'm talking about, often in a format where they can "try this at home" and experiment with it by running it on their own machine.
+I sometimes write posts [that]({% post_url 2018-08-01-unix-utility-of-the-day-xxd %}) [include]({% post_url 2020-04-20-quick-audio-video-python %}) [code]({% post_url 2020-05-21-kilobeat %}). This is nice because it allows me to describe something very precisely, yet approachably: I can _show_ the reader exactly what I'm talking about, often in a format where they can "try this at home" and experiment with it by running it on their own machine.
 
 However, this requires that readers switch between the article and something else (e.g. a Python REPL). If they wait until the end without running any code, they might not bother. If they switch in the middle of the article, they might not come back and finish it. Ideally, they would be able to run the code _right there in the post_.
 
-In other posts and pages on this site, there's a complementary problem: the code is easily runnable, but not easily visible. Sometimes I post _runnable applications_: client-side Javascript. [kilobeat]({% post_url 2020-5-21-kilobeat %}) and [my mini GSX synth emulator]({% post_url 2020-9-6-emulating-the-gsx %}) are good examples. These can be executed by the reader right in the browser (indeed, the GSX emulator is embedded directly in the post). The code, however, is slightly hidden ("view source") and, as before, not readily tweakable without context-switching.
+In other posts and pages on this site, there's a complementary problem: the code is easily runnable, but not easily visible. Sometimes I post _runnable applications_: client-side Javascript. [kilobeat]({% post_url 2020-05-21-kilobeat %}) and [my mini GSX synth emulator]({% post_url 2020-09-06-emulating-the-gsx %}) are good examples. These can be executed by the reader right in the browser (indeed, the GSX emulator is embedded directly in the post). The code, however, is slightly hidden ("view source") and, as before, not readily tweakable without context-switching.
 
 Ideally, runnable posts should:
 - Let the reader see the code.
@@ -99,7 +99,7 @@ embed.animation(frames)
 ~~~
 {: .runnable}
 
-The post [Quick & Simple: Audio and Video in Python]({% post_url 2020-4-20-quick-audio-video-python %}) included a neat little example application for generating animated GIFs from short expressions (like `x+y+t`). With the ingredients we have so far, we can bring this application into the browser. You can run and tweak this directly:
+The post [Quick & Simple: Audio and Video in Python]({% post_url 2020-04-20-quick-audio-video-python %}) included a neat little example application for generating animated GIFs from short expressions (like `x+y+t`). With the ingredients we have so far, we can bring this application into the browser. You can run and tweak this directly:
 
 ~~~ python
 import numpy as np

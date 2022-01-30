@@ -34,7 +34,7 @@ A funky tune. [Listen here.](https://soundcloud.com/ijc8/return-true)
 ## kilobeat
 In Spring 2020 at MIT, I built a little platform for low-level collaborative livecoding called `kilobeat`. Unlike most livecoding environments (but like the [bytebeat](http://canonical.org/~kragen/bytebeat/) practices that inspired it), players in kilobeat generate music by writing short expressions that generate audio samples directly (hence "low-level"). Everyone can see everyone else's code and activity, and players may copy or depend directly on each other's output. I originally created kilobeat for the course [SOUND: PAST & FUTURE](http://spf.media.mit.edu/) and the [MIT laptop ensemble (FaMLE)](https://musictech.mit.edu/MLE) in Spring 2020, but it lives on and continues to receive occasional fixes and enhancements.
 
-You can read more about kilobeat [here]({% post_url 2020-5-21-kilobeat %}), play with it live [here]({{ site.baseurl }}/kilobeat), and check out the source code [here](https://github.com/ijc8/kilobeat).
+You can read more about kilobeat [here]({% post_url 2020-05-21-kilobeat %}), play with it live [here]({{ site.baseurl }}/kilobeat), and check out the source code [here](https://github.com/ijc8/kilobeat).
 
 ![Screenshot of kilobeat]({{ site.baseurl }}/images/kilobeat.png)
 
@@ -50,7 +50,7 @@ In Spring 2020, Mergen Nachin and I took 6.835 (Intelligent Multimodal User Inte
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WzsOeIe-S30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>{: style="display: block; margin: auto"}
 
-The process in _Arrows_ begins with a single, unwavering sine tone. It splits into two, with each descedant warped by a random affine transform that tweaks the tone's start and end times and frequencies. This bifurcation repeats with each tone in each generation. The tones proliferate and warp, and entropy increases. _Arrows_ runs this process forwards for several generations and waits until the last tones have died out; but it plays the process _backwards_, reversing the arrow of time for the listener and decreasing entropy as tones realign and unify, finally converging on their progenitor. I composed _Arrows_ as a Python program, generating the audio and video ([relevant post]({% post_url 2020-4-20-quick-audio-video-python %})) from the same random seed.
+The process in _Arrows_ begins with a single, unwavering sine tone. It splits into two, with each descedant warped by a random affine transform that tweaks the tone's start and end times and frequencies. This bifurcation repeats with each tone in each generation. The tones proliferate and warp, and entropy increases. _Arrows_ runs this process forwards for several generations and waits until the last tones have died out; but it plays the process _backwards_, reversing the arrow of time for the listener and decreasing entropy as tones realign and unify, finally converging on their progenitor. I composed _Arrows_ as a Python program, generating the audio and video ([relevant post]({% post_url 2020-04-20-quick-audio-video-python %})) from the same random seed.
 
 **Cluttered Desks** is a composition that Virgil B., Terrence G., and I wrote for MUSI 6003 (Music Technology History & Repertoire) at Georgia Tech. It is inspired by Paul Lansky's [Table's Clear](https://www.youtube.com/watch?v=xbmV4xXwsAI), and it is composed out of samples recorded from our living spaces and sythesized sounds.
 
