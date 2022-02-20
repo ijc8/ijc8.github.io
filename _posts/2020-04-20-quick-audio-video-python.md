@@ -10,7 +10,7 @@ date: 2020-4-20 17:00:00 -0400
 
 Tools for working with audio and video abound. I often find that these do not perfectly serve my purposes: I know what I want, but existing tools might not support it well or at all. It's nice, and sometimes essential, to have the flexibility of a general programming language, which enables you to express what you want precisely using the abstractions of your choosing.
 
-To that end: here are the quickest ways I know to get audio and video into our out of Python. Python, while not perfect, is pretty reasonable among dynamic languages, exceedingly convenient, and finally past the era of 2-vs-3. Some might not think of it as a language for [DSP](https://en.wikipedia.org/wiki/Digital_signal_processing), but its excellent ecosystem (including [the SciPy squad](https://www.scipy.org/)) and expressiveness make it a very useful tool.
+To that end: here are the quickest ways I know to get audio and video into or out of Python. Python, while not perfect, is pretty reasonable among dynamic languages, exceedingly convenient, and finally past the era of 2-vs-3. Some might not think of it as a language for [DSP](https://en.wikipedia.org/wiki/Digital_signal_processing), but its excellent ecosystem (including [the SciPy squad](https://www.scipy.org/)) and expressiveness make it a very useful tool.
 
 Future posts may discuss some of the many interesting things to do with audio and video. This post is more preliminary: all about getting audio and video samples into Python (say, from files or hardware) and/or out of it and into the world. So, here are some brief examples, comprising the possibilities {audio, video} x {files, hardware} x {input, output}.
 
