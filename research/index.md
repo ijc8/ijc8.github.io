@@ -6,7 +6,7 @@ permalink: /research/
 
 # Publications
 
-**Alternator: A General-Purpose Generative Music Player** -- [WAC 2022](https://wac2022.i3s.univ-cotedazur.fr/) -- Best Paper Award  
+**Alternator: A General-Purpose Generative Music Player** --- [WAC 2022](https://wac2022.i3s.univ-cotedazur.fr/) --- Best Paper Award  
 _**Ian Clester**, Jason Freeman_ --- [pdf](https://doi.org/10.5281/zenodo.6767436), [video](https://www.youtube.com/watch?v=CE74b76B2Rw&t=20793s)
 
 **Composing the Network with Streams** --- [AM 2021](https://audiomostly.com/2021/) --- IWIS Best Poster Award  
