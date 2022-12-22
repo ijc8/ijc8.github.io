@@ -4,9 +4,7 @@ title:     Contact
 permalink: /contact/
 ---
 
-Email:
-
-    $ echo $URL | sed -E 's#.*//(([a-z]+)[^/]*).*#\2@\1#'
+Email: [ijc@ijc8.me](mailto:ijc@ijc8.me)
 
 Assorted online accounts:
 - [GitHub](https://github.com/ijc8)
