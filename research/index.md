@@ -6,6 +6,12 @@ permalink: /research/
 
 # Publications
 
+**Composing with Generative Systems in the Digital Audio Workstation** --- [MILC 2023](https://ceur-ws.org/Vol-3359/paper15.pdf)  
+_**Ian Clester**, Jason Freeman_ --- [pdf](https://ceur-ws.org/Vol-3359/paper15.pdf), [demo](https://www.youtube.com/watch?v=5VU-ora7Wx0)
+
+**Computer-Assisted Measure Detection in a Music Score-Following Application** --- [WoRMS 2022](https://sites.google.com/view/worms2022/)  
+_Eran Egozy, **Ian Clester**_ --- [pdf](/static/concertcue-omr.pdf), [video](https://www.youtube.com/watch?v=RHWaLZz3wwI)
+
 **Alternator: A General-Purpose Generative Music Player** --- [WAC 2022](https://wac2022.i3s.univ-cotedazur.fr/) --- Best Paper Award  
 _**Ian Clester**, Jason Freeman_ --- [pdf](https://doi.org/10.5281/zenodo.6767436), [video](https://www.youtube.com/watch?v=ceSlGrpMINA)
 
@@ -52,7 +58,7 @@ The project code isn't currently publicly available, but the web application can
 ## RISC-V Formal Semantics
 RISC-V is an open instruction set architecture designed to be practical. Basically, it's a cool open standard that also aims for practicality and extensibility.
 
-From Spring 2017 through IAP 2019, I worked with Professor [Adam Chlipala](http://adam.chlipala.net) and [Thomas Bourgeat](http://www.csail.mit.edu/user/3875) to develop a formal, friendly, and
+From Spring 2017 through IAP 2019, I worked with Professor [Adam Chlipala](http://adam.chlipala.net) and [Thomas Bourgeat](https://people.csail.mit.edu/bthom/) to develop a formal, friendly, and
 runnable RISC-V specification. The idea is to clearly define the correct
 behavior from RISC-V in a format that is both human-readable and
 machine-readable. At present, this is in the form of an emulator written in
