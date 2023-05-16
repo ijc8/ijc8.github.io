@@ -7,7 +7,7 @@ date_format: "%Y-%m-%d"
 kramdown:
   input: GFM
 permalink: pretty
-exclude: misc
+exclude: [misc]
 
 # Third-party services
 # just leave someone empty to disable it
