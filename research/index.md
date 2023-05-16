@@ -6,7 +6,10 @@ permalink: /research/
 
 # Publications
 
-**Composing with Generative Systems in the Digital Audio Workstation** --- [MILC 2023](https://ceur-ws.org/Vol-3359/paper15.pdf)  
+**LambDAW: Towards a Generative Audio Workstation** --- [ICLC 2023](https://iclc.toplap.org/2023/)  
+_**Ian Clester**, Jason Freeman_ --- [pdf](https://doi.org/10.5281/zenodo.7842002), [video](https://www.youtube.com/watch?v=_Z71KQtWpMk&t=1270s)
+
+**Composing with Generative Systems in the Digital Audio Workstation** --- [MILC 2023](https://milc2023.github.io/)  
 _**Ian Clester**, Jason Freeman_ --- [pdf](https://ceur-ws.org/Vol-3359/paper15.pdf), [demo](https://www.youtube.com/watch?v=5VU-ora7Wx0)
 
 **Computer-Assisted Measure Detection in a Music Score-Following Application** --- [WoRMS 2022](https://sites.google.com/view/worms2022/)  
