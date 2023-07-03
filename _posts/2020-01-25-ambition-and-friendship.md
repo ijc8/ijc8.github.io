@@ -28,9 +28,9 @@ Here I consider two classics that deal with these questions: Xenophon's _The Edu
 
 _The Education of Cyrus_ (or [_Cyropaedia_](TODO wiki link)) is a pretty old book written by this Greek guy, Xenophon, around 370 BC. I have an unusually large number of friends who are into philosophy and still subscribe to the wisdom of the ancients, and when I asked them for a recommendation, as someone who has neither read the ancients nor previously expressed much interest in doing so, this is what they gave me.
 
-The book opens with by asking a question about political systems: namely, how to have a stable one. That is, how can we create a government that avoids the cycles of turmoil that regularly ensue as elites vie for power and others rebel and start revolutions? Or, how can we overcome the basic nature of humans, which is to resist rule by other humans?
+The book opens by asking a question about political systems: namely, how to have a stable one. That is, how can we create a government that avoids the cycles of turmoil that regularly ensue as elites vie for power and others rebel and start revolutions? Or, how can we overcome the basic nature of humans, which is to resist rule by other humans?
 
-The question posed, Xenophon spends the remainder of the book describing the life of one man who apparently answered this question by example: Cyrus of Persia, who went on to conquer just about his entire known world and rule over it as king. To give the briefest account of this narrative: Cyrus is a kid in Persia, which at the time was a pretty small country. Like the rest of the boys in Persia, he trains constantly, learns justice, and lives a rather ~~Spartan~~ Persian life. Then, we he's maybe 12 or so, he visits his grandpa, the king of nearby Media.[^1] Grandpa, unlike the Persians, lives resplendently, and introduces Cyrus to a life of luxury. Also, Cyrus learns horseback riding and makes a bunch of Median friends. Eventually, grandpa dies and Cyrus goes back to Persia, where he manages to convince everyone that he hasn't gone soft from his extended stay in the Comfy Kingdom.
+The question posed, Xenophon spends the remainder of the book describing the life of one man who apparently answered this question by example: Cyrus of Persia, who went on to conquer just about his entire known world and rule over it as king. To give the briefest account of this narrative: Cyrus is a kid in Persia, which at the time was a pretty small country. Like the rest of the boys in Persia, he trains constantly, learns justice, and lives a rather ~~Spartan~~ Persian life. Then, when he's maybe 12 or so, he visits his grandpa, the king of nearby Media.[^1] Grandpa, unlike the Persians, lives resplendently, and introduces Cyrus to a life of luxury. Also, Cyrus learns horseback riding and makes a bunch of Median friends. Eventually, grandpa dies and Cyrus goes back to Persia, where he manages to convince everyone that he hasn't gone soft from his extended stay in the Comfy Kingdom.
 
 When Cyrus is a young adult and a good Persian citizen, a threat approaches: Persia's unfriendly neighbors are amassing allies and resources to put Persia and Media in their places. The Persian Jedi Council nominates Cyrus to amass the Persian army and go handle it. Cyrus meets up with his uncle Cyaxares, the current Median ruler, and then handle it he does. To make a medium-length story short, Cyrus then goes the extra mile, and a few thousand extra miles beyond that, and ends up conquering Assyria and installing himself as the king in its capital of Babylon.
 
@@ -53,7 +53,7 @@ This brings us to the crux of the movie, where a drunk, suicidal George is visit
 
 ## On Friendship
 
-There's one scene in _The Education of Cyrus_ that really got my attention, as kind of weird parallel to _It's a Wonderful Life_. Cyrus, having taken the magnificent city of Babylon as his own, has made a habit of gift-giving and generosity, frequently gifting friends and associates with fine valuables and excellent food. In fact, Cyrus is _so_ generous that his adviser/defeated buddy Croesus warns him that he's going to go broke and suggests that he save more instead. In response, Cyrus makes a "beautiful display" to Croesus, which I will simply quote here because it's funny (emphasis mine):
+There's one scene in _The Education of Cyrus_ that really got my attention, as a kind of weird parallel to _It's a Wonderful Life_. Cyrus, having taken the magnificent city of Babylon as his own, has made a habit of gift-giving and generosity, frequently gifting friends and associates with fine valuables and excellent food. In fact, Cyrus is _so_ generous that his adviser/defeated buddy Croesus warns him that he's going to go broke and suggests that he save more instead. In response, Cyrus makes a "beautiful display" to Croesus, which I will simply quote here because it's funny (emphasis mine):
 
 > And Cyrus is said to have asked, "And how much money do you think that I would have now if I had been gathering gold together in the way you bid for as long as I have been ruling?"
 >  
@@ -97,7 +97,7 @@ George is ambitious by nature. This is best established when George and his fath
 
 > __George's father, Peter:__ I suppose you've decided what you want to do when you get out of college.
 >
-> __George:__ Oh well, you know what I've always talked about... build things... design new buildings... plan modern cities... all that stuff, I was talking about.
+> __George:__ Oh well, you know what I've always talked about... build things... design new buildings... plan modern cities... all that stuff I was talking about.
 >
 > __Peter:__ Still after that first million before you're thirty.
 >
@@ -128,7 +128,7 @@ Cyrus is ambitious, too. Perhaps owing to his adolescence spent in the luxury of
 >
 > So he spoke as follows: "Cyrus, that of all human beings you Persians take the noblest care not be **insatiably disposed toward any single pleasure** I know both by seeing and by hearing. Yet it seems to me to be most especially advantageous to be **continent in the greatest pleasure**. And what provides human begins greater pleasure than the good fortune that has now come to us? If then, when we enjoy good fortune, we guard it moderately, it would perhaps be within our power to grow old in happiness without risk. Yet if we are **insatiable** in this, and try to pursue first one and then another [instance of good fortune], watch out that we do not suffer..."
 
-The whole thing with the Persians of Cyrus's time is their tough exercise of moderation and restraint, but here Cyaxares's all but outright accuses Cyrus of being immoderate and incontinent: Cyrus is _insatiable_ for victory and fortune. His ambition is out of control.
+The whole thing with the Persians of Cyrus's time is their tough exercise of moderation and restraint, but here Cyaxares all but outright accuses Cyrus of being immoderate and incontinent: Cyrus is _insatiable_ for victory and fortune. His ambition is out of control.
 
 Cyrus is apparently always striving to be good, just, virtuous, and above all moderate, as a Persian should. But he appears to have become distinctly immoderate in his ambitions. Rather than celebrate his and Cyaxares' early victory, he insists on riding his momentum further and further until he has conquered an empire. This certainly seems to work in Cyrus's favor --- he has a great life and dies contented. Ironically, though, all of Cyrus's grand conquest and leadership ultimately works to the great detriment of his community. As Xenophon describes in the end:
 
@@ -148,7 +148,10 @@ But his family, allies, and even his fatherland are torn asunder by the power st
 
 _The Education of Cyrus_ and _It's a Wonderful Life_ are, on the surface, two very different works: they are from different times, of different cultures, in different formats, and on different subjects. Despite these surface differences, these two classics have some striking parallels, and they both have something to say about ambition and friendship.
 
-George Bailey is a man of ambition who puts his big dreams on the sideline every time duty calls, and in doing so greatly benefits his family and community. Cyrus of Persia is a man of ambition who successfully chases it to the edges of his known world, and in doing so inadvertently destroys everything he holds dear. George demonstrates the value of ambition moderated by love, while Cyrus illustrates the dangers of ambition unmoderated. Both Cyrus and George, acting with very different motives, are excellent at making friends of everyone around them, and in this sense both are men of great wealth.
+George Bailey is a man of ambition who puts his big dreams on the sideline every time duty calls, and in doing so greatly benefits his family and community. Cyrus of Persia is a man of ambition who successfully chases it to the edges of his known world, and in doing so inadvertently destroys everything he holds dear. George demonstrates the value of ambition moderated by love, while Cyrus illustrates the dangers of ambition unmoderated. Both Cyrus and George, acting with very different motives, are excellent at making friends of everyone around them, and in this sense both are men of great wealth --- but while George helps bind his community together, Cyrus ultimately causes his to fall apart.
+
+---
+
+_Edited 2023-07-02 to fix typos and complete the final sentence._
 
 [^1]: To clarify, Media was a place. Which is apparently where we get the words "Media" and "Median" from. Cyrus's Median friends weren't average: they were from Media!
-
