@@ -6,6 +6,12 @@ permalink: /research/
 
 # Publications
 
+**Distributing Generative Music With Alternator** --- [JAES Volume 71 Issue 11 (Nov. 2023)](https://www.aes.org/journal/online/JAES_V71/11/)  
+_**Ian Clester**, Jason Freeman_ --- [pdf](https://doi.org/10.17743/jaes.2022.0113)
+
+**Flexible Instruction-Set Semantics via Abstract Monads** --- [ICFP 2023](https://icfp23.sigplan.org/)  
+_Thomas Bourgeat, **Ian Clester**, Andres Erbsen, Samuel Gruetter, Pratap Singh, Andy Wright, Adam Chlipala_ --- [pdf](https://dl.acm.org/doi/pdf/10.1145/3607833), [video](https://www.youtube.com/watch?v=l2O15JJauFs)
+
 **LambDAW: Towards a Generative Audio Workstation** --- [ICLC 2023](https://iclc.toplap.org/2023/)  
 _**Ian Clester**, Jason Freeman_ --- [pdf](https://doi.org/10.5281/zenodo.7842002), [video](https://www.youtube.com/watch?v=_Z71KQtWpMk&t=1270s)
 
