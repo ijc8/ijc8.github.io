@@ -5,7 +5,8 @@ class CustomProcessor extends AudioWorkletProcessor {
         this.pos = 0
         this.port.onmessage = async e => {
             if (e.data.cmd === "loadModule") {
-                this.module = new WebAssembly.Module(e.data.buffer)
+                this.module = new WebAssembly.Module(e.data.binary)
+                this.trace = e.data.trace
             } else if (e.data.cmd === "reset") {
                 this.setup(e.data.seed)
             } else if (e.data.cmd === "play") {
@@ -19,9 +20,23 @@ class CustomProcessor extends AudioWorkletProcessor {
 
     async setup(seed) {
         this.pos = 0
-        this.wasm = await WebAssembly.instantiate(this.module)
-        if (this.wasm.exports.setup) {
-            this.wasm.exports.setup(seed)
+        if (this.trace) {
+            const traceLogs = []
+            this.traceLogs = traceLogs
+            this.wasm = await WebAssembly.instantiate(this.module, {
+                scorecard: { log(i) { traceLogs[i] = (traceLogs[i] ?? 0) + 1 } }
+            })
+            if (this.wasm.exports.setup) {
+                this.wasm.exports.setup(seed)
+                this.port.postMessage(traceLogs)
+                traceLogs.length = 0
+            }
+        } else {
+            this.traceLogs = null
+            this.wasm = await WebAssembly.instantiate(this.module)
+            if (this.wasm.exports.setup) {
+                this.wasm.exports.setup(seed)
+            }
         }
     }
 
@@ -39,8 +54,12 @@ class CustomProcessor extends AudioWorkletProcessor {
         }
 
         this.pos += 128
-        if (this.pos % 1024) {
+        if (this.pos % 1024 === 0) {
             this.port.postMessage(this.pos)
+            if (this.traceLogs) {
+                this.port.postMessage(this.traceLogs)
+                this.traceLogs.length = 0
+            }
         }
 
         return true
