@@ -30,8 +30,8 @@ _**Ian Clester**, Jason Freeman_ --- [pdf](https://doi.org/10.5281/zenodo.676743
 **Composing the Network with Streams** --- [AM 2021](https://audiomostly.com/2021/) --- IWIS Best Poster Award  
 _**Ian Clester**, Jason Freeman_ --- [pdf](/static/composing-the-network-with-streams.pdf), [video](https://www.youtube.com/watch?v=F2V-n4nsLgM)
 
-**kilobeat: low-level collaborative livecoding** --- [WAC 2021](https://webaudioconf2021.com/)  
-_**Ian Clester**_ --- [pdf](https://webaudioconf2021.com/wp-content/uploads/2021/06/kilobeat.pdf), [video](https://youtu.be/0QaM5xgTfEM)
+**kilobeat: low-level collaborative livecoding** --- [WAC 2021](https://webaudioconf.com/)  
+_**Ian Clester**_ --- [pdf](https://webaudioconf.com/_data/papers/pdf/2021/2021_49.pdf), [video](https://youtu.be/0QaM5xgTfEM)
 
 **Robotic Grasping of Fully-Occluded Objects using RF Perception** --- [ICRA 2021](https://www.ieee-icra.org/)  
 _Tara Boroushaki, Junshan Leng, **Ian Clester**, Alberto Rodriguez, Fadel Adib_ --- [pdf](https://arxiv.org/pdf/2012.15436.pdf), [video](https://www.youtube.com/watch?v=ZAzeYPcTM78)
