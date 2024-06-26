@@ -59,7 +59,7 @@ But, as I've said, this kind of knowledge is precisely the kind that is the most
 
 Which begs the question: what's worth learning?
 
-There's a knowledge out there to be obtained - certainly more than any one person can obtain in a lifetime. Given that, it becomes a question of which freedoms you're *most* interested in securing, at the expense of all others.
+There's a vast wealth of knowledge out there to be obtained - certainly more than any one person can obtain in a lifetime. Given that, it becomes a question of which freedoms you're *most* interested in securing, at the expense of all others.
 
 There are many, _many_ areas in which I remain ignorant. As stated, I am the prisoner of my ignorance in these areas. I do not know, to any real depth, how to grow food, how to treat serious illness or injury, or how to build a house. Obviously, these are all of great importance, and yet I remain ignorant on these topics and depend on other more knowledgeable people to employ their knowledge on my behalf. 
 
@@ -78,6 +78,10 @@ Earlier, I omitted an important case when discussing one's options in the face o
 Strengthening your Google-Fu, becoming more willing to get hands-on, or simply giving problems more thought can all improve your skill at learning. And learning a little bit in an area can often make learning more much easier, as you start to gain an idea of what's out there to learn, and the relative difficulty of different fields. It compounds in a wonderful way.
 
 Free yourself. Learn something new.
+
+---
+
+_Edited 2024-07-08 to fill in a missing phrase._
 
 [^1]: And continued to procrastinate on writing...
 

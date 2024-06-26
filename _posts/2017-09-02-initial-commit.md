@@ -7,7 +7,7 @@ date: 2017-09-02 01:56:00 -0700
 I showed up too early. I always like to show up to airports early, to allow for
 unexpected hindrances and potential setbacks. This time, however, I showed up
 decidedly too early. I sit here prior to 2 AM and can stare at any one of
-several red monitors perhaps 15 yards away, allow of which inform me that Virgin
+several red monitors perhaps 15 yards away, all of which inform me that Virgin
 America's service hours do not begin until 4:15 AM on Saturdays[^1]. I naively
 assumed all facets of an international airport were 24-hour affairs, and did not
 bother to check my assumption prior to leaving the apartment ~30 minutes ago and
@@ -79,7 +79,7 @@ So, now back to the harder question:
 ## Why share logs?
 
 This has definitely been the biggest sticking point for me. For a while, the
-idea of sending things online slightly terrified me to the permanence of
+idea of sending things online slightly terrified me due to the permanence of
 everything. If you say something stupid in conversation, there's an effect, but
 it fades with memory (both yours and whoever you said it to). You're unlikely to
 run into an embarassing situation when you're 25 regarding something dumb you
@@ -186,6 +186,9 @@ Hopefully, dear reader, you find that some of them have value.
 Hey, now it's 3:32 AM. Only 43 minutes until I check can check my bag; this was
 a decent time sink after all!
 
+---
+
+_Edited 2024-07-07 to fix typos, except for the one I intentionally left in place back in 2019. ☺_
 
 [^1]: Note that this isn't specific to Virgin America.
 

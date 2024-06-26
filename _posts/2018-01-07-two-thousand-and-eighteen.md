@@ -14,7 +14,7 @@ This is further evidence of the temporal acceleration that occurs throughout the
 
 And then something happens around mid-October. Probably some derivative of temporal position is constant (maybe the jerk, maybe the jounce), but acceleration is not, and right around mid-late October, things suddenly get a lot faster, resulting in:
 
-- Mid October: Wow, there sure is a lot of stuff going on. But I'm still on top of things, are generally cognizant of what's going on.
+- Mid October: Wow, there sure is a lot of stuff going on. But I'm still on top of things, and generally cognizant of what's going on.
 - Late October: Pretty busy, but still fi-
 - Mid December (weekend before finals): -what just happened and why do i smell like peanut butter and sorrow
 
@@ -26,7 +26,7 @@ What have I been up to over my luxurious winter break? I'm glad you asked!
 
 - Reading! I read _Outliers_ by Malcolm Gladwell, which was interesting and more contentful than I had expected (from the somewhat click-baity way the 10,000-hour rule is often referenced). I also read [a book about composing game music](https://mitpress.mit.edu/books/composers-guide-game-music), which was quite insightful. And I devoured another Stephen King novel (_Cell_), and picked up a couple of others for the road.
 - Movies! I watched a bunch of them. I also saw _It's a Wonderful Life_ for the first time, and have feelings about it.
-- Music! I didn't have access to a guitar, so I worked on my (near-nonexistent) keyboard skills. Actually, I didn't have access to a keyboard, either, but I was able to borrow one while I was in town. I was also able to borrow the time and materials of a local saint, who gave my several lessons and helped motivate my progress. The crowning achievement of my break is undoubtedly my hard-won ability to play _The Entertainer_ half-decently. I've also been doing some ear training stuff. Unrelatedly, I continue to discover new things I like by Dan Auerbach ([example](https://www.youtube.com/watch?v=ASggLTKljI4)).
+- Music! I didn't have access to a guitar, so I worked on my (near-nonexistent) keyboard skills. Actually, I didn't have access to a keyboard, either, but I was able to borrow one while I was in town. I was also able to borrow the time and materials of a local saint, who gave me several lessons and helped motivate my progress. The crowning achievement of my break is undoubtedly my hard-won ability to play _The Entertainer_ half-decently. I've also been doing some ear training stuff. Unrelatedly, I continue to discover new things I like by Dan Auerbach ([example](https://www.youtube.com/watch?v=ASggLTKljI4)).
 
 There were some weird tense changes there, but I'm not going to bother fixing them because I want to finish this post before I eat.
 
@@ -37,3 +37,7 @@ I've also been kicking around the idea of a more essay-like post, tentatively na
 Yours in the current year,
 
 ijc
+
+---
+
+_Edited 2024-07-07 to fix a typo._

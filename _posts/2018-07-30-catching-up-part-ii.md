@@ -90,7 +90,7 @@ Pictures. There's a bunch, so most lack alt-text.
 ![]({{ site.baseurl }}/images/mitso_symphonyhall.jpg "Rest assured I put my phone away immediately after taking this."){:width="250px"}
 ![]({{ site.baseurl }}/images/church1.jpg){:width="250px"}
 ![]({{ site.baseurl }}/images/stoplightperformance.jpg){:width="250px"}
-![]({{ site.baseurl }}/images/valencia.jpg){:height="500px"}
+![]({{ site.baseurl }}/images/valencia.jpg)
 ![]({{ site.baseurl }}/images/cookiemonster.jpg "cookie monster donuts!"){:width="250px"}
 ![]({{ site.baseurl }}/images/arena.jpg){:width="250px"}
 ![]({{ site.baseurl }}/images/city1.jpg){:width="250px"}
@@ -127,5 +127,5 @@ Pictures. There's a bunch, so most lack alt-text.
 ![]({{ site.baseurl }}/images/church5.jpg){:width="250px"}
 ![]({{ site.baseurl }}/images/emmastreethat.jpg){:width="250px"}
 ![]({{ site.baseurl }}/images/spaintour.jpg){:width="250px"}
-![]({{ site.baseurl }}/images/iantent.jpg){:height="500px"}
+![]({{ site.baseurl }}/images/iantent.jpg)
 ![]({{ site.baseurl }}/images/aesthetic.jpg){:height="100px" .center-image}
