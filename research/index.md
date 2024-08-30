@@ -6,6 +6,9 @@ permalink: /research/
 
 # Publications
 
+**ScoreCard: Generative music programs as QR codes** --- [WAC 2024](https://www.cla.purdue.edu/academic/rueffschool/music/events/conferences-festivals/wac-24/wac-24.html)  
+_**Ian Clester**, Jason Freeman_ --- [pdf](/static/scorecard.pdf)
+
 **Distributing Generative Music With Alternator** --- [JAES Volume 71 Issue 11 (Nov. 2023)](https://www.aes.org/journal/online/JAES_V71/11/)  
 _**Ian Clester**, Jason Freeman_ --- [pdf](https://doi.org/10.17743/jaes.2022.0113)
 
