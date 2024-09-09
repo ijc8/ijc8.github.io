@@ -15,7 +15,7 @@ Before we begin, here are some handy links that you might want to refer back to 
 
 # Schedule
 
-This is a half-day workshop (14:30-18:30), and we'll be following roughly the following schedule (which may be adjusted as needed):
+This is a half-day workshop (14:30-18:30), and we'll be following this rough schedule (which may be adjusted as needed):
 - 14:30-15:00: Introduction to ScoreCard
 - 15:00-16:00: Hands-on tutorial (guided examples of increasing complexity)
 - 16:00-16:15: Break
@@ -86,7 +86,7 @@ float process() {
 
 <iframe src="https://ijc8.me/s?c=07JF3U+EK2AU8YNW1$::MID.8O0B0BGA3CJIL6PIG$:D9CR0I7MK49-PPW+T1MX-5NCU49:ETAPHT0JTDRES9K:1*A1JFQZQK9S$6$OC$I/2DP./DINGM1AX01L25-5I"></iframe>
 
-(Note that you can clip "Show Card" above to see the compiled card for this program!)
+(Note that you can click "Show Card" above to see the compiled card for this program!)
 
 In this case, our *state* is explicitly declared as a global variable, which `process()` *mutates* every time it is called.
 
@@ -105,7 +105,7 @@ float process() {
 
 Notice that the size of the binary has actually increased from the previous one, despite the program getting shorter. This is due to our use of `rand()`; the implementation of `rand()` must now be included in the binary by the linker. Because these programs are statically-linked, we pay for what we use (and nothing else)!
 
-This principle is an important constraint when composing scorecards, and it's why we're using a language like C rather than, say, Python or Pure Data. To analogize, if you want a grand piano at the gig, you're going to have bring it in your fan. It won't fit in your van? Perhaps consider an electronic keyboard instead.
+This principle is an important constraint when composing scorecards, and it's why we're using a language like C rather than, say, Python or Pure Data. To analogize, if you want a grand piano at the gig, you're going to have bring it in your van. It won't fit in your van? Perhaps consider an electronic keyboard instead.
 
 *Fun exercise:* see what happens if you call `sin()` or `sinf()`.
 
@@ -113,7 +113,7 @@ This principle is an important constraint when composing scorecards, and it's wh
 
 At this point, things may be feeling a little cramped, a bit spartan. Our examples so far have included... silence, an aliased sawtooth, and noise. Trying to play a single sine wave totally broke the bank!
 
-But don't give up hope. I promise we really can do some interesting things that fit within the confines of a card's QR code; we just have to get a little creative. In particular, we have shop for _value_. We don't need to do less, but we need to make less do more.
+But don't give up hope. I promise we really can do some interesting things that fit within the confines of a card's QR code; we just have to get a little creative. In particular, we must shop for _value_. We don't need to do less, but we need to make less do more.
 
 Composing a card is an exercise in concision. How much code does it take to explain your idea to the computer? Are you repeating yourself? Use the tools at your disposal keep it brief. These are the core classics of abstraction: loops and functions. (Beware of macros.) Code is compression.
 
@@ -156,7 +156,7 @@ We can combine two instances of `sqr()` --- using the output of one to modulate 
 float phase = 0;
 const float base_freq = 500;
 float mod_phase = 0;
-float mod_ratio = 10;
+const float mod_ratio = 10;
 float mod_freq = base_freq / mod_ratio;
 float mod_depth = 0.5;
 
@@ -226,7 +226,7 @@ float process() {
 
 This version of the card introduces the *optional* things that a ScoreCard can do. (Recall that the one thing it *must* do is generate audio samples via `process()`.)
 
-In addition to `process()`, we define `setup()`, which can take a *random seed* and use it however it likes. In this case, we use it to seed the standard library's PRNG via `srand()`, and then use the convenience function `uniform()` and macro `choice()` to leave some things up to (pseudo-)chance. (Try pressing the reset button to hear different variants! You can also try locking the seed or setting it manually.)
+In addition to `process()`, we define `setup()`, which can take a *random seed* and use it however it likes. In this case, we use it to seed the standard library's PRNG via `srand()`, and then use the convenience function `uniform()` and the macro `choice()` to leave some things up to (pseudo-)chance. (Try pressing the reset button to hear different variants! You can also try locking the seed or setting it manually.)
 
 Finally, we've added a call to `card_title()`, a macro which allows us to declare a string that the ScoreCard player can display to the user. (This string is embedded in the WebAssembly binary.)
 
@@ -242,7 +242,7 @@ If we approach this naively, we'll end up with a big old state machine, probably
 
 ## Fake Generators Yield Real Fun
 
-The good news: languages have figured out to deal with the problem of preserving control flow and state across multiple "entries" into a program. The general answer is [coroutines](https://en.wikipedia.org/wiki/Coroutine#Generators). Different languages have different flavors and names (e.g. "generators" in Python and JS), but the key point is that you have something that *looks like a function*, and which can use all the conventional control flow you'd expect, but which can "return" (yield) multiple times. Each time it's called again, it simply picks up from where it left off.
+The good news: languages have figured out to deal with the problem of preserving control flow and state across multiple "entries" into a program. The general answer is [coroutines](https://en.wikipedia.org/wiki/Coroutine#Generators). Different languages have different flavors and names (e.g. "generators" in Python and JS), but the key point is that you have something that *looks like a function*, and which can use all the conventional control flow you'd expect, but which can "return" (yield) multiple times. Each time it's called again (resumed), it simply picks up from where it left off.
 
 The bad news: C does not have coroutines.
 
@@ -258,8 +258,8 @@ Let's look at a quick example. We'll play a melody repeatedly, with some logic t
 card_title("lick spiral");
 
 struct note_t {
-    char pitch;
-    char dur;
+    uint8_t pitch;
+    uint8_t dur;
 };
 
 struct note_t notes[] = {
@@ -303,7 +303,7 @@ If you're familiar with `static` and thinking ahead a bit, you might wonder how 
 
 ## Composing Generators
 
-Here's a more involved example, in which we compose two generators together. `process()` itself is a generator function, but it just deals with synthesizing notes (and rests). It pulls notes from another function, `arp()`, which is also a generator: a higher-level one that emits events!
+Here's a more involved example in which we compose two generators together. `process()` itself is a generator function, but it just deals with synthesizing notes (and rests). It pulls notes from another function, `arp()`, which is also a generator: a higher-level one that emits events!
 
 ```c
 #include "deck.h"
@@ -311,9 +311,9 @@ Here's a more involved example, in which we compose two generators together. `pr
 card_title("arpeggios");
 setup_rand;
 
-const int scale[] = {0, 2, 3, 5, 7, 9, 10, 12, 14};
+const uint8_t scale[] = {0, 2, 3, 5, 7, 9, 10, 12, 14};
 
-const int chords[][5] = {
+const uint8_t chords[][5] = {
     {0, 2, 4, 6, 7},
     {0, 2, 3, 5, 7},
     {0, 1, 3, 6, 7},
