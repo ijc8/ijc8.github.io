@@ -1,5 +1,3 @@
-const num_outputs = 8
-
 const OPS = [
     "zero",
     "and",
@@ -27,8 +25,14 @@ class CustomProcessor extends AudioWorkletProcessor {
         this.port.onmessage = async e => {
             if (e.data.cmd === "loadModule") {
                 this.module = new WebAssembly.Module(e.data.binary)
-                this.wasm = await WebAssembly.instantiate(this.module)
+                this.wasmPromise = WebAssembly.instantiate(this.module)
+                this.wasm = await this.wasmPromise
             } else if (e.data.cmd === "loadNetwork") {
+                if (this.wasm === undefined) {
+                    // This is just for Safari, in which the second `onmessage` fires before the first one has finished.
+                    // (Somehow this never comes up in other browsers...)
+                    await this.wasmPromise
+                }
                 const view = new DataView(this.wasm.exports.memory.buffer)
                 const network = this.wasm.exports.network.value
                 const NETWORK = e.data.network
@@ -51,6 +55,7 @@ class CustomProcessor extends AudioWorkletProcessor {
                     lastLength = layer.length
                 }
                 // console.log(flatNetwork)
+                this.num_outputs = lastLength
                 this.counts = new Uint8Array(this.num_inputs + this.num_gates)
             } else if (e.data.cmd === "play") {
                 this.playing = true
@@ -71,6 +76,7 @@ class CustomProcessor extends AudioWorkletProcessor {
         const data = this.wasm.exports.data.value
         const logic_gate_net = this.wasm.exports.logic_gate_net
         const period = 1 << this.num_inputs
+        const num_outputs = this.num_outputs
         const max_output = 2**num_outputs - 1
         const counts = this.counts
         // console.log(this.num_inputs, this.period)
