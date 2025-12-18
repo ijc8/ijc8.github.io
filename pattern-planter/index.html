@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Recursive&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pattern Planter</title>
+    <style>
+      body {
+        /* background-color: #222; */
+        cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAdCAYAAAC0T3x2AAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpSIVByuIOGSoThb8Qhy1CkWoEGqFVh1MLv2CJg1Jiouj4Fpw8GOx6uDirKuDqyAIfoA4OzgpukiJ/0sKLWI8OO7Hu3uPu3eAUC8zzeoYAzTdNlOJuJjJroqhV4TRjyBCGJeZZcxJUhK+4+seAb7exXiW/7k/R4+asxgQEIlnmWHaxBvE05u2wXmfOMKKskp8Tjxq0gWJH7muePzGueCywDMjZjo1TxwhFgttrLQxK5oa8RRxVNV0yhcyHquctzhr5Spr3pO/MJzTV5a5TnMICSxiCRJEKKiihDJsxGjVSbGQov24j3/Q9UvkUshVAiPHAirQILt+8D/43a2Vn5zwksJxoPPFcT6GgdAu0Kg5zvex4zROgOAzcKW3/JU6MPNJeq2lRY+A3m3g4rqlKXvA5Q4w8GTIpuxKQZpCPg+8n9E3ZYG+W6B7zeutuY/TByBNXSVvgINDYKRA2es+7+5q7+3fM83+fgBaH3KdLw/cjAAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+gMFQQBGneEGQQAAADJSURBVEjH5VZJEsMwCLOY/v/L6iFJJ9MCZrFzKbfEixACjcf412D3AiRBUAWSEB1SA2WGqYRrR0YYm+DS0ewLnBlGDJSEFkOS139OGTklctdKGt2yYlA7poEAuNlXWUlhrkoJSOTwxVJjbn2HgGaHVjUDspoYe9geWGuGvHWp+Fal+16KV7VDbZ4jOaqbqjNz3oGyBa3uui1g8Ny4qc9P6bBhSGGVDgcWxq6QJ+zHc+uyblprexb00W0Vw9S7LsLQYpRNd1pSC+gNo1ZwAXDGLTMAAAAASUVORK5CYII=) 5 2, default;
+        background: #cfc;
+        margin: 0;
+      }
+
+      #app {
+        margin-left: auto;
+        margin-right: auto;
+        /* width: 800px; */
+        width: 100%;
+        height: 100vh;
+      }
+
+      #planter {
+        width: 100%;
+      }
+
+      #buttons {
+        display: flex;
+        width: 100%;
+      }
+
+      button {
+        display: block;
+        flex-grow: 1;
+        padding: 10px;
+        font-family: 'Recursive', monospace;
+        background: black;
+        color: white;
+        font-size: larger;
+      }
+
+      button.clicked, button:active {
+        background: white;
+        color: black;
+      }
+
+      input {
+        width: 100%;
+        font-family: 'Recursive', monospace;
+        background: black;
+        color: white;
+        outline: none;
+        margin: 0;
+        border: none;
+        font-size: larger;
+      }
+
+      .node-text {
+        font-family: monospace;
+      }
+
+      path:hover {
+        cursor: url(./assets/shears-DO7L41Ah.png) 5 5, default;
+      }
+
+      rect:hover {
+        cursor: url(./assets/watering-can-B380QTXV.png) 0 10, default;
+      }
+
+      rect:active {
+        cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAaCAYAAABLlle3AAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpSIVByuIOGSoThb8Qhy1CkWoEGqFVh1MLv2CJg1Jiouj4Fpw8GOx6uDirKuDqyAIfoA4OzgpukiJ/0sKLWI8OO7Hu3uPu3eAUC8zzeoYAzTdNlOJuJjJroqhV4TRjyBCGJeZZcxJUhK+4+seAb7exXiW/7k/R4+asxgQEIlnmWHaxBvE05u2wXmfOMKKskp8Tjxq0gWJH7muePzGueCywDMjZjo1TxwhFgttrLQxK5oa8RRxVNV0yhcyHquctzhr5Spr3pO/MJzTV5a5TnMICSxiCRJEKKiihDJsxGjVSbGQov24j3/Q9UvkUshVAiPHAirQILt+8D/43a2Vn5zwksJxoPPFcT6GgdAu0Kg5zvex4zROgOAzcKW3/JU6MPNJeq2lRY+A3m3g4rqlKXvA5Q4w8GTIpuxKQZpCPg+8n9E3ZYG+W6B7zeutuY/TByBNXSVvgINDYKRA2es+7+5q7+3fM83+fgBaH3KdLw/cjAAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+gMFQQRBbBOBqAAAADVSURBVEjHxZbREoUgCERZx///5b0v1xkjYVCofMxy9yAQIh8sHHzDwrNSonTMPCaq9+gZaU+YIikkTZO9kn4SEsC+4lYgpsk09o22V5FpQsvESZpTEYTF/vs4Cu84dIgAEADihThDylWiRIVm2r4T1jkjd8RSpFmxYbztdJ2soFWnXg+FV/AZUbOgK1fbDGEJbbfukaQAKKOdzSLacfQB4UZwjQxWvRfTy8xk7krMI0WkTi1aT2z1kMGmsbyCiFh0FGHgfZ7MSDzcy//935zs2hszq14/zVl8/pMgN28AAAAASUVORK5CYII=) 0 10, default;
+      }
+
+      text {
+        user-select: none;
+        pointer-events: none;
+      }
+
+      #strudel {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: none;
+      }
+
+      * {
+        overflow: none !important;
+      }
+
+      #background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-BOUfCbVz.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <video id="background-video" autoplay muted loop playsinline>
+        <source src="./assets/background-BaxB3C-7.mp4" type="video/mp4">
+      </video>
+      <div id="planter"></div>
+      <div id="strudel"></div>
+    </div>
+  </body>
+</html>
