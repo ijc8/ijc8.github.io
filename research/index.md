@@ -4,40 +4,78 @@ title:     Research
 permalink: /research/
 ---
 
-# Publications
+# Outputs
 
-**ScoreCard: Generative music programs as QR codes** --- [WAC 2024](https://www.cla.purdue.edu/academic/rueffschool/music/events/conferences-festivals/wac-24/wac-24.html)  
+**Legend:** 📝 Paper \| 🗣️ Talk \| 🎵 Performance \| 🖼️ Installation \| 👥 Workshop
+
+---
+
+## Selected
+
+**TAPE: From direct to programmatic and back** 🗣️ --- [LIVE 2024](https://liveprog.org/live-2024)  
+_**Ian Clester**_ --- [video](https://www.youtube.com/watch?v=4GOeYylCMJI&t=20946s)
+
+**Process Pieces as Paper Programs** 👥 --- [NIME 2024](https://www.nime2024.org/)  
+_**Ian Clester**_ --- [info](https://www.nime2024.org/programDetails.php?id=450), [materials](https://ijc8.me/nime2024/)
+
+**ScoreCard: Generative music programs as QR codes** 📝 🗣️ --- [WAC 2024](https://www.cla.purdue.edu/academic/rueffschool/music/events/conferences-festivals/wac-24/wac-24.html)  
 _**Ian Clester**, Jason Freeman_ --- [pdf](/static/scorecard.pdf)
 
-**Distributing Generative Music With Alternator** --- [JAES Volume 71 Issue 11 (Nov. 2023)](https://aes2.org/publications/journal-online/?vol=71&num=11)  
-_**Ian Clester**, Jason Freeman_ --- [pdf](https://doi.org/10.17743/jaes.2022.0113)
-
-**Hack the Show: Design and Analysis of Three Interaction Modes for Audience Participation** --- [JAES Volume 71 Issue 11 (Nov. 2023)](https://aes2.org/publications/journal-online/?vol=71&num=11)  
-_Matthias Jung, **Ian Clester**_ --- [pdf](https://doi.org/10.17743/jaes.2022.0111)
-
-**Flexible Instruction-Set Semantics via Abstract Monads** --- [ICFP 2023](https://icfp23.sigplan.org/)  
-_Thomas Bourgeat, **Ian Clester**, Andres Erbsen, Samuel Gruetter, Pratap Singh, Andy Wright, Adam Chlipala_ --- [pdf](https://dl.acm.org/doi/pdf/10.1145/3607833), [video](https://www.youtube.com/watch?v=l2O15JJauFs)
-
-**LambDAW: Towards a Generative Audio Workstation** --- [ICLC 2023](https://iclc.toplap.org/2023/)  
+**LambDAW: Towards a Generative Audio Workstation** 📝 🗣️ --- [ICLC 2023](https://iclc.toplap.org/2023/)  
 _**Ian Clester**, Jason Freeman_ --- [pdf](https://doi.org/10.5281/zenodo.7842002), [video](https://www.youtube.com/watch?v=_Z71KQtWpMk&t=1270s)
 
-**Composing with Generative Systems in the Digital Audio Workstation** --- [MILC 2023](https://milc2023.github.io/)  
-_**Ian Clester**, Jason Freeman_ --- [pdf](https://ceur-ws.org/Vol-3359/paper15.pdf), [demo](https://www.youtube.com/watch?v=5VU-ora7Wx0)
+**Sax Machine** 🎵 --- [60x60 2023](http://www.60x60.com/2023_Slippery_Rock_Mix.htm)  
+_**Ian Clester**_ --- [video](https://www.youtube.com/watch?v=H34-kXQSVaE&start=3341)
 
-**Computer-Assisted Measure Detection in a Music Score-Following Application** --- [WoRMS 2022](https://sites.google.com/view/worms2022/)  
-_Eran Egozy, **Ian Clester**_ --- [pdf](/static/concertcue-omr.pdf), [video](https://www.youtube.com/watch?v=RHWaLZz3wwI)
-
-**Alternator: A General-Purpose Generative Music Player** --- [WAC 2022](https://wac2022.i3s.univ-cotedazur.fr/) --- Best Paper Award  
+**Alternator: A General-Purpose Generative Music Player** 📝 🗣️ --- [WAC 2022](https://wac2022.i3s.univ-cotedazur.fr/) --- **Best Paper Award** ⭐  
 _**Ian Clester**, Jason Freeman_ --- [pdf](https://doi.org/10.5281/zenodo.6767436), [video](https://www.youtube.com/watch?v=ceSlGrpMINA)
 
-**Composing the Network with Streams** --- [AM 2021](https://audiomostly.com/2021/) --- IWIS Best Poster Award  
+**Composing the Network with Streams** 📝 🗣️ --- [AM 2021](https://audiomostly.com/2021/) --- **IWIS Best Poster Award** ⭐  
 _**Ian Clester**, Jason Freeman_ --- [pdf](/static/composing-the-network-with-streams.pdf), [video](https://www.youtube.com/watch?v=F2V-n4nsLgM)
 
-**kilobeat: low-level collaborative livecoding** --- [WAC 2021](https://webaudioconf.com/)  
-_**Ian Clester**_ --- [pdf](https://webaudioconf.com/_data/papers/pdf/2021/2021_49.pdf), [video](https://youtu.be/0QaM5xgTfEM)
+---
 
-**Robotic Grasping of Fully-Occluded Objects using RF Perception** --- [ICRA 2021](https://www.ieee-icra.org/)  
+## Others
+
+**The Best of Both Worlds: Reconciling Web Audio with Native Audio** 🗣️ --- [WAC 2025](https://wac-2025.ircam.fr/)  
+_**Ian Clester**, Ashvala Vinay_
+
+**Garden Party** 🎵 --- [WAC 2025](https://wac-2025.ircam.fr/)  
+_**Ian Clester**_
+
+**Synthesizing Music with Logic Gate Networks** 📝 --- [NIME 2025](https://nime2025.org/)  
+_**Ian Clester**_ --- [pdf](https://nime.org/proceedings/2025/nime2025_91.pdf)
+
+**Playing Cards** 🎵 --- [WAC 2024](https://www.cla.purdue.edu/academic/rueffschool/music/events/conferences-festivals/wac-24/wac-24.html)  
+_**Ian Clester**_
+
+**Blocks** 🖼️ --- [WAC 2024](https://www.cla.purdue.edu/academic/rueffschool/music/events/conferences-festivals/wac-24/wac-24.html)  
+_**Ian Clester**_
+
+**Distributing Generative Music With Alternator** 📝 --- [JAES Volume 71 Issue 11 (Nov. 2023)](https://aes2.org/publications/journal-online/?vol=71&num=11)  
+_**Ian Clester**, Jason Freeman_ --- [pdf](https://aes.org/publications/elibrary-page/?id=22343)
+
+**Hack the Show: Design and Analysis of Three Interaction Modes for Audience Participation** 📝 --- [JAES Volume 71 Issue 11 (Nov. 2023)](https://aes2.org/publications/journal-online/?vol=71&num=11)  
+_Matthias Jung, **Ian Clester**_ --- [pdf](https://aes.org/publications/elibrary-page/?id=22342)
+
+**Flexible Instruction-Set Semantics via Abstract Monads** 📝 --- [ICFP 2023](https://icfp23.sigplan.org/)  
+_Thomas Bourgeat, **Ian Clester**, Andres Erbsen, Samuel Gruetter, Pratap Singh, Andy Wright, Adam Chlipala_ --- [pdf](https://dl.acm.org/doi/pdf/10.1145/3607833), [video](https://www.youtube.com/watch?v=l2O15JJauFs)
+
+
+**Composing with Generative Systems in the Digital Audio Workstation** 📝 🗣️ --- [MILC 2023](https://milc2023.github.io/)  
+_**Ian Clester**, Jason Freeman_ --- [pdf](https://ceur-ws.org/Vol-3359/paper15.pdf), [demo](https://www.youtube.com/watch?v=5VU-ora7Wx0)
+
+
+**Computer-Assisted Measure Detection in a Music Score-Following Application** 📝 --- [WoRMS 2022](https://sites.google.com/view/worms2022/)  
+_Eran Egozy, **Ian Clester**_ --- [pdf](/static/concertcue-omr.pdf), [video](https://www.youtube.com/watch?v=RHWaLZz3wwI)
+
+**kilobeat: low-level collaborative livecoding** 📝 🗣️ --- [WAC 2021](https://webaudioconf.com/)  
+_**Ian Clester**_ --- [pdf](https://raw.githubusercontent.com/web-audio-conference/website-src/refs/heads/master/src/_data/papers/pdf/2021/2021_49.pdf), [video](https://youtu.be/0QaM5xgTfEM)
+
+**Robotic Grasping of Fully-Occluded Objects using RF Perception** 📝 --- [ICRA 2021](https://www.ieee-icra.org/)  
 _Tara Boroushaki, Junshan Leng, **Ian Clester**, Alberto Rodriguez, Fadel Adib_ --- [pdf](https://arxiv.org/pdf/2012.15436.pdf), [video](https://www.youtube.com/watch?v=ZAzeYPcTM78)
+
+---
 
 # Projects
 
