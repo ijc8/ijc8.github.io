@@ -12,6 +12,17 @@ permalink: /research/
 
 ## Selected
 
+**Putting Programs on Paper With ScoreCard: Generative Music Pieces as QR Codes** 📝 --- [JAES Volume 73 #12 (Dec. 2025)](https://aes.org/journal-online/?vol=73&num=12)  
+_**Ian Clester**, Jason Freeman_ --- [pdf](javascript: document.jaes_scorecard.submit())
+
+<!-- workaround for JAES... -->
+<form name="jaes_scorecard" action="https://aes.org/wp-admin/admin-ajax.php" method="post">
+    <input type="hidden" name="action" value="journal_download" />
+    <input type="hidden" name="url" value="https://elibrary.aes.org/api/v1/journal/download/73/12/890/l/" />
+    <input type="hidden" name="a_type" value="SllUZEFETkRYQkQrM0lkT3dIOG85Zz09Ojr100wRMeHGawxtzIzE8DaP" />
+    <input type="hidden" name="docTitle" value="Putting_Programs_on_Paper_With_ScoreCard:_Generative_Music_Pieces_as_QR_Codes__low.pdf" />
+</form>
+
 **TAPE: From direct to programmatic and back** 🗣️ --- [LIVE 2024](https://liveprog.org/live-2024)  
 _**Ian Clester**_ --- [video](https://www.youtube.com/watch?v=4GOeYylCMJI&t=20946s)
 
@@ -52,19 +63,17 @@ _**Ian Clester**_
 **Blocks** 🖼️ --- [WAC 2024](https://www.cla.purdue.edu/academic/rueffschool/music/events/conferences-festivals/wac-24/wac-24.html)  
 _**Ian Clester**_
 
-**Distributing Generative Music With Alternator** 📝 --- [JAES Volume 71 Issue 11 (Nov. 2023)](https://aes2.org/publications/journal-online/?vol=71&num=11)  
+**Distributing Generative Music With Alternator** 📝 --- [JAES Volume 71 #11 (Nov. 2023)](https://aes2.org/publications/journal-online/?vol=71&num=11)  
 _**Ian Clester**, Jason Freeman_ --- [pdf](https://aes.org/publications/elibrary-page/?id=22343)
 
-**Hack the Show: Design and Analysis of Three Interaction Modes for Audience Participation** 📝 --- [JAES Volume 71 Issue 11 (Nov. 2023)](https://aes2.org/publications/journal-online/?vol=71&num=11)  
+**Hack the Show: Design and Analysis of Three Interaction Modes for Audience Participation** 📝 --- [JAES Volume 71 #11 (Nov. 2023)](https://aes2.org/publications/journal-online/?vol=71&num=11)  
 _Matthias Jung, **Ian Clester**_ --- [pdf](https://aes.org/publications/elibrary-page/?id=22342)
 
 **Flexible Instruction-Set Semantics via Abstract Monads** 📝 --- [ICFP 2023](https://icfp23.sigplan.org/)  
 _Thomas Bourgeat, **Ian Clester**, Andres Erbsen, Samuel Gruetter, Pratap Singh, Andy Wright, Adam Chlipala_ --- [pdf](https://dl.acm.org/doi/pdf/10.1145/3607833), [video](https://www.youtube.com/watch?v=l2O15JJauFs)
 
-
 **Composing with Generative Systems in the Digital Audio Workstation** 📝 🗣️ --- [MILC 2023](https://milc2023.github.io/)  
 _**Ian Clester**, Jason Freeman_ --- [pdf](https://ceur-ws.org/Vol-3359/paper15.pdf), [demo](https://www.youtube.com/watch?v=5VU-ora7Wx0)
-
 
 **Computer-Assisted Measure Detection in a Music Score-Following Application** 📝 --- [WoRMS 2022](https://sites.google.com/view/worms2022/)  
 _Eran Egozy, **Ian Clester**_ --- [pdf](/static/concertcue-omr.pdf), [video](https://www.youtube.com/watch?v=RHWaLZz3wwI)
