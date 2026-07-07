@@ -35,13 +35,11 @@ Wow! The resources for my content---the reason the site exists in the first plac
 
 Even the design feels cleaner and less bloated:
 
-[![Utterances]({{ site.baseurl }}/images/utterances.png "After")]({{ site.baseurl }}/images/utterances.png)
-{: style="border: 1px solid black"}
+<p style="border: 1px solid black"><a href="{{ site.baseurl }}/images/utterances.png"><img src="{{ site.baseurl }}/images/utterances.png" alt="Utterances" title="After"></a></p>
 
 vs.
 
-[![Disqus]({{ site.baseurl }}/images/disqus.png "Before")]({{ site.baseurl }}/images/disqus.png)
-{: style="border: 1px solid black"}
+<p style="border: 1px solid black"><a href="{{ site.baseurl }}/images/disqus.png"><img src="{{ site.baseurl }}/images/disqus.png" alt="Disqus" title="Before"></a></p>
 
 So, I'll try utterances for now. Maybe I'll end up deciding comments are overrated and strip it out, but in the meantime, it beats Disqus.
 

@@ -18,15 +18,16 @@ This question is tough; let's try an easier one. What about friendship? Is frien
 
 Here I consider two classics that deal with these questions: Xenophon's _The Education of Cyrus_ (as translated by Wayne Ambler), and Frank Capra's _It's a Wonderful Life_. They might seem to be an odd couple, but they share some remarkable parallels.
 
-{:style="text-align:center"}
-![The cover of "The Education of Cyrus"]({{ site.baseurl }}/images/the_education_of_cyrus.jpg "a greek classic"){: height="300px" style="margin-right: 150px"}
-![The poster for "It's a Wonderful Life"]({{ site.baseurl }}/images/its_a_wonderful_life.jpg "a christmas classic"){: height="300px"}
+<p style="text-align:center">
+<img src="{{ site.baseurl }}/images/the_education_of_cyrus.jpg" alt="The cover of &quot;The Education of Cyrus&quot;" title="a greek classic" height="300px" style="margin-right: 150px">
+<img src="{{ site.baseurl }}/images/its_a_wonderful_life.jpg" alt="The poster for &quot;It's a Wonderful Life&quot;" title="a christmas classic" height="300px">
+</p>
 
 [**spoiler warning:** naturally, spoilers follow. if you're concerned about that, you should probably go read/watch these and come back.]
 
 ## The Education of Cyrus
 
-_The Education of Cyrus_ (or [_Cyropaedia_](TODO wiki link)) is a pretty old book written by this Greek guy, Xenophon, around 370 BC. I have an unusually large number of friends who are into philosophy and still subscribe to the wisdom of the ancients, and when I asked them for a recommendation, as someone who has neither read the ancients nor previously expressed much interest in doing so, this is what they gave me.
+_The Education of Cyrus_ (or [_Cyropaedia_](https://en.wikipedia.org/wiki/Cyropaedia)) is a pretty old book written by this Greek guy, Xenophon, around 370 BC. I have an unusually large number of friends who are into philosophy and still subscribe to the wisdom of the ancients, and when I asked them for a recommendation, as someone who has neither read the ancients nor previously expressed much interest in doing so, this is what they gave me.
 
 The book opens by asking a question about political systems: namely, how to have a stable one. That is, how can we create a government that avoids the cycles of turmoil that regularly ensue as elites vie for power and others rebel and start revolutions? Or, how can we overcome the basic nature of humans, which is to resist rule by other humans?
 
@@ -34,8 +35,9 @@ The question posed, Xenophon spends the remainder of the book describing the lif
 
 When Cyrus is a young adult and a good Persian citizen, a threat approaches: Persia's unfriendly neighbors are amassing allies and resources to put Persia and Media in their places. The Persian Jedi Council nominates Cyrus to amass the Persian army and go handle it. Cyrus meets up with his uncle Cyaxares, the current Median ruler, and then handle it he does. To make a medium-length story short, Cyrus then goes the extra mile, and a few thousand extra miles beyond that, and ends up conquering Assyria and installing himself as the king in its capital of Babylon.
 
-{: style="text-align: center"}
-![A still from the "Boy, that escalated quickly" line in Anchorman.]({{ site.baseurl }}/images/escalated.png "is this meme still relevant"){: height="200px"}
+<p style="text-align: center">
+<img src="{{ site.baseurl }}/images/escalated.png" alt="A still from the &quot;Boy, that escalated quickly&quot; line in Anchorman." title="is this meme still relevant" height="200px">
+</p>
 
 At the end of his life and after many more exploits and conquests, Cyrus presides over an obscenely large kingdom. Despite its size and geographic spread, the kingdom is entirely in good order and under his control, and his efforts have led to a remarkable era of peace, prosperity, and stability for his subjects. On his deathbed, Cyrus implores his two sons to be good lads, not to tussle pettily over power, and to take good care of the kingdom. Having said his piece, Cyrus dies and of course the kingdom immediately falls apart, with many warring regions and factions vying for power and control.
 

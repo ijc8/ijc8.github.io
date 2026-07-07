@@ -5,8 +5,7 @@ permalink: /em/
 ---
 
 _A video awaits..._ <br>
-_To mark a special date!_
-{: style="font-size: larger"}
+_To mark a special date!_{style="font-size: larger"}
 
 <div id="player" style="transition: opacity 4s; opacity: 1"></div>
 
@@ -43,5 +42,4 @@ function onPlayerStateChange(event) {
 </script>
 
 <span id="part1" style="transition: opacity 5s; opacity: 0">_That video's too exciting!_</span> <br>
-<span id="part2" style="transition: opacity 5s; opacity: 0">_Now rest seems most inviting._ 😴</span>
-{: style="font-size: larger"}
+<span id="part2" style="transition: opacity 5s; opacity: 0">_Now rest seems most inviting._ 😴</span>{style="font-size: larger"}

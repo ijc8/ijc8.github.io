@@ -13,7 +13,7 @@ permalink: /research/
 ## Selected
 
 **Putting Programs on Paper With ScoreCard: Generative Music Pieces as QR Codes** 📝 --- [JAES Volume 73 #12 (Dec. 2025)](https://aes.org/journal-online/?vol=73&num=12)  
-_**Ian Clester**, Jason Freeman_ --- [pdf](javascript: document.jaes_scorecard.submit())
+_**Ian Clester**, Jason Freeman_ --- <a href="javascript: document.jaes_scorecard.submit()">pdf</a>
 
 <!-- workaround for JAES... -->
 <form name="jaes_scorecard" action="https://aes.org/wp-admin/admin-ajax.php" method="post">
@@ -104,7 +104,7 @@ TODO
 ## BackTrack
 BackTrack (Backscatter Tracker) is a system for RFID localization I developed in the [Signal Kinetics](https://www.media.mit.edu/groups/signal-kinetics/overview/) group under [Fadel Adib](https://www.mit.edu/~fadel/), building on the lab's work on [RFind](https://www.media.mit.edu/projects/rfid-localization/overview/) and [TurboTrack](https://www.media.mit.edu/projects/turbotrack-3d-backscatter-localization-for-fine-grained/overview/). RFID tags are normally used to determine the identity of people and goods, but this system enables determining their position in space as well. RFID tags are particularly useful as localization targets due to their low cost, ubiquity, and battery-free operation. I built a frequency-hopping system that provided higher framerates while requiring lower sampling rates, compared to prior systems, with the goal of exploring and enhancing the feasibility of RFID localization as an input for interactive applications.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ig7wVQ9mWcU?cc_load_policy=1" frameborder="0" allowfullscreen></iframe>{: style="display: block; margin: auto"}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ig7wVQ9mWcU?cc_load_policy=1" frameborder="0" allowfullscreen style="display: block; margin: auto"></iframe>
 
 ## ConcertCue
 ConcertCue is a system for streaming synchronized program notes during a live musical performance, with the goal of enriching the concert-going experience with text and images designed to aid in musical appreciation and understanding. I worked on this project with Professor [Eran Egozy](https://mta.mit.edu/person/eran-egozy) and Diane Zhou throughout the 2018-2019 academic year.

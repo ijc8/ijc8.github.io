@@ -139,13 +139,13 @@ Finally, the last thing you should know about IAP is that it was cold.
 
 Have some pictures:
 
-![Big chair]({{ site.baseurl }}/images/bigchair.jpg "I've heard of a high chair, but this is ridiculous"){:width="250px"}
-![Chicks]({{ site.baseurl }}/images/chicks.jpg "so fluff"){:width="250px"}
-![Closer chicks]({{ site.baseurl }}/images/chicks2.jpg "[fluff intensifies]"){:width="250px"}
+![Big chair]({{ site.baseurl }}/images/bigchair.jpg "I've heard of a high chair, but this is ridiculous"){width="250px"}
+![Chicks]({{ site.baseurl }}/images/chicks.jpg "so fluff"){width="250px"}
+![Closer chicks]({{ site.baseurl }}/images/chicks2.jpg "[fluff intensifies]"){width="250px"}
 ![Big bug]({{ site.baseurl }}/images/bigbug.jpg "Less fluff...")
-![Probability display]({{ site.baseurl }}/images/probability.jpg "There's no escape."){:width="250px"}
-![Infinite Basement]({{ site.baseurl }}/images/basement.jpg "it stretches on"){:width="250px"}
-![Birds on ice]({{ site.baseurl }}/images/icebirds.jpg "tfw when you're a water fowl but the water is ice instead"){:width="250px"}
+![Probability display]({{ site.baseurl }}/images/probability.jpg "There's no escape."){width="250px"}
+![Infinite Basement]({{ site.baseurl }}/images/basement.jpg "it stretches on"){width="250px"}
+![Birds on ice]({{ site.baseurl }}/images/icebirds.jpg "tfw when you're a water fowl but the water is ice instead"){width="250px"}
 ![Icy river]({{ site.baseurl }}/images/iceplane.jpg "so cold. also, my thumb.")
 ![T-Rex with scarf]({{ site.baseurl }}/images/trexscarf.jpg "Even the mighty T-Rex is chilly.")
 ![Emma in the studio]({{ site.baseurl }}/images/emmastudio1.jpg "Emma laying down beats in <s>my dorm room</s> the studio.")

@@ -2,8 +2,7 @@
 layout:    page
 ---
 
-## Hello!
-{: .post-header}
+## Hello!{.post-header}
 
 I'm Ian Clester, a [PhD student](https://music.gatech.edu/phd-music-technology) in [Music Technology](https://gtcmt.gatech.edu/) at Georgia Tech. I am advised by [Jason Freeman](https://distributedmusic.gatech.edu/jason/), and my research focuses on **computational music** --- music which is written down as a program rather than a fixed score --- and its implications. This idea is related to [process music](https://en.wikipedia.org/wiki/Process_music), [aleatoric music](https://en.wikipedia.org/wiki/Aleatoric_music), and [generative music](https://en.wikipedia.org/wiki/Generative_music). Other interests include HCI and programming languages.
 

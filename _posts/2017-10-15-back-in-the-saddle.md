@@ -58,10 +58,10 @@ dramatic, but I think it's fairly accurate nonetheless.
 Anyway, it's about time to cut this post short. Here are some parting pictures,
 presented mostly without explanation:
 
-![Stack of boxes]({{ site.baseurl }}/images/boxstack.jpg "stairs :-("){:height="500px"}
-![#SEAFOXNATION]({{ site.baseurl }}/images/seafoxnation.jpg){:height="500px"}
-![Cake]({{ site.baseurl }}/images/cake.jpg "The top layer is square; the bottom layer is circle."){:height="500px"}
-![Maze Victory]({{ site.baseurl }}/images/mazevictory.jpg){:height="500px"}
+![Stack of boxes]({{ site.baseurl }}/images/boxstack.jpg "stairs :-("){height="500px"}
+![#SEAFOXNATION]({{ site.baseurl }}/images/seafoxnation.jpg){height="500px"}
+![Cake]({{ site.baseurl }}/images/cake.jpg "The top layer is square; the bottom layer is circle."){height="500px"}
+![Maze Victory]({{ site.baseurl }}/images/mazevictory.jpg){height="500px"}
 ![Mass Ave & Vassar St]({{ site.baseurl }}/images/massavevassar.jpg)
 
 

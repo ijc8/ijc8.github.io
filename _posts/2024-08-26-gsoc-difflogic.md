@@ -12,8 +12,7 @@ This summer, I returned for another round, this time working with [BeagleBoard.o
 # Ingredients
 The key ingredients that went into this project are difflogic, Bela, and bytebeat, which roughly correspond to "Differentiable Logic", "Interactive Systems", and "Generative Music", respectively. I explain what these ingredients are and how they fit together in the [intro video](https://www.youtube.com/watch?v=NvHxMCF8sAQ) I created at the start of the project,
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NvHxMCF8sAQ?si=FSEsVFchTJlgtEbB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-{: style="display: block; margin: auto"}
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NvHxMCF8sAQ?si=FSEsVFchTJlgtEbB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display: block; margin: auto"></iframe>
 
 but I'll recap briefly here.
 
@@ -32,11 +31,10 @@ It enables people to build highly responsive instruments, installations, interac
 ## Generative Music: bytebeat
 [bytebeat](http://canonical.org/~kragen/bytebeat/) is a musical practice which involves writing short expressions that describe audio as a function of time, generating sound directly, sample-by-sample. For example, the expression `((t>>10)&42)*t` generates the following audio:
 
-<audio controls="controls">
+<audio controls="controls" style="display: block; margin: auto">
     <source src="{{ site.baseurl }}/static/gsoc24-bytebeat-long.wav">
     Your browser does not support the audio element.
 </audio>
-{: style="display: block; margin: auto"}
 
 The bytebeat approach is rather unusual compared to the conventional computer music approach, which tends to feature a rigid separation of different layers (control vs. synthesis, score vs. orchestra). Bytebeat expressions, in contrast, simultaneously determine everything --- timbre, rhythm, melody, structure --- from the level of individual audio samples on up.
 
@@ -80,11 +78,11 @@ The starting point was the built-in functionality that difflogic offers for expo
 
 <!-- TODO: something about performance and batching? -->
 
-![difflogic~ (with network baked in) in a Pd patch on Bela]({{ site.baseurl }}/images/gsoc24-pd-bela.png){: style="display: block; margin: auto"}
+![difflogic~ (with network baked in) in a Pd patch on Bela]({{ site.baseurl }}/images/gsoc24-pd-bela.png){style="display: block; margin: auto"}
 
 A more flexible approach: compile the difflogic-generated C into a shared library and dynamically load it using (on Linux or macOS) [`dlopen()`](https://man7.org/linux/man-pages/man3/dlopen.3.html). This is the approach taken by the most complete wrapper, a difflogic external for Pure Data, which supports loading difflogic DLLs and comes with both signal (`difflogic~`) and message (`difflogic`) versions of the object.
 
-![difflogic and difflogic~ objects (loading network from dynamic library) in a Pd patch in PlugData]({{ site.baseurl }}/images/gsoc24-plugdata.png){: style="display: block; margin: auto"}
+![difflogic and difflogic~ objects (loading network from dynamic library) in a Pd patch in PlugData]({{ site.baseurl }}/images/gsoc24-plugdata.png){style="display: block; margin: auto"}
 
 Further flexibility could be attained by loading a description of the network and either interpreting it (as in the interactive application described [below](#applications)) or perhaps using just-in-time (JIT) compilation, but this would come at the cost of performance and/or plugin complexity.
 
@@ -100,9 +98,9 @@ Thus, I explored the possibility of running logic gate networks on a PRU in para
 
 Rather than go further down this rabbit hole, I decided to change tacks and generate PRU assembly directly, without going through a C compiler. In addition to getting my hands dirty with the PRU's instruction set, this involved taking on some of the tasks that a C compiler would (hopefully) do for us. I ultimately used the [NetworkX](https://networkx.org/) library to pre-process and optimize the difflogic network before finally generating PRU assembly.
 
-![Fragment of network pre-simplification (edge color indicates operand order)]({{ site.baseurl }}/images/gsoc24-network-crop.png){: style="display: block; margin: auto"}
+![Fragment of network pre-simplification (edge color indicates operand order)]({{ site.baseurl }}/images/gsoc24-network-crop.png){style="display: block; margin: auto"}
 
-![Fragment of network after expanding to basic operations and simplifyng]({{ site.baseurl }}/images/gsoc24-network-simplified-crop.png){: style="display: block; margin: auto"}
+![Fragment of network after expanding to basic operations and simplifyng]({{ site.baseurl }}/images/gsoc24-network-simplified-crop.png){style="display: block; margin: auto"}
 
 <!-- TODO talk about tricks like using bit-addressing to expand effective number of registers on PRU? -->
 
@@ -117,10 +115,10 @@ Intuitively, using `GroupSum` (and correspondingly [thermometer encoding](https:
 In my small-scale experiments, I found markedly different behavior when using networks with binary positional encoding versus `GroupSum` (unary) encoding. Both kinds of networks could learn functions, but the binary representation was much more strongly affected by discretization, losing more accuracy when switching from training mode to inference mode than a GroupSum network of comparable size and exhibiting "jagged" behavior. The following plots demonstrate this with tiny networks trained to learn the identity function.
 
 Binary (positional) encoding:
-![Network using binary encoding trying to learn the identity function]({{ site.baseurl }}/images/gsoc24-binary-plot.png){: style="display: block; margin: auto"}
+![Network using binary encoding trying to learn the identity function]({{ site.baseurl }}/images/gsoc24-binary-plot.png){style="display: block; margin: auto"}
 
 Unary (thermometer & GroupSum) encoding:
-![Network using unary encoding trying to learn the identity function]({{ site.baseurl }}/images/gsoc24-unary-plot.png){: style="display: block; margin: auto"}
+![Network using unary encoding trying to learn the identity function]({{ site.baseurl }}/images/gsoc24-unary-plot.png){style="display: block; margin: auto"}
 
 Input/output representation issues also complicated my plans to try combining difflogic with other ML techniques, such as [differentiable digital signal processing](https://magenta.tensorflow.org/ddsp) (DDSP). The problem is that the conversion between floating point scalars and binary vectors (either in positional representation or unary encoding) is only differentiable one-way. For instance, if we have a vector of bits `[a b c d]` positionally encoding a scalar, we can compute the corresponding scalar as `1*a + 2*b + 4*c + 8*d`, which we can easily differentiate with respect to each variable. Going the other way, from a scalar to a bit vector, we need to "split" the value into several discrete slots, and it's not obvious how to go about this in a differentiable way. This question is moot when we're feeding our data directly into a logic gate network; we can just convert the values beforehand. But if we're trying to train our logic gate network as part of a larger hybrid model, where the logic layers may follow neural layers, we have an open problem.
 
@@ -136,37 +134,34 @@ Initially, I tried training some difflogic networks on the output of bytebeat ex
 
 Example: original audio for expression `((t >> 10) & 42) * t` (first two seconds)
 
-<audio controls="controls">
+<audio controls="controls" style="display: block; margin: auto">
     <source src="{{ site.baseurl }}/static/gsoc24-bytebeat-short.wav">
     Your browser does not support the audio element.
 </audio>
-{: style="display: block; margin: auto"}
 
 Output of unary (thermometer & GroupSum) network:
 
-![Network using unary encoding trying to recreate bytebeat output]({{ site.baseurl }}/images/gsoc24-unary-short.png){: style="display: block; margin: auto"}
+![Network using unary encoding trying to recreate bytebeat output]({{ site.baseurl }}/images/gsoc24-unary-short.png){style="display: block; margin: auto"}
 
-<audio controls="controls">
+<audio controls="controls" style="display: block; margin: auto">
     <source src="{{ site.baseurl }}/static/gsoc24-unary-short.wav">
     Your browser does not support the audio element.
 </audio>
-{: style="display: block; margin: auto"}
 
 Output of binary (positional) network:
 
-![Network using binary encoding trying to recreate bytebeat output]({{ site.baseurl }}/images/gsoc24-binary-short.png){: style="display: block; margin: auto"}
+![Network using binary encoding trying to recreate bytebeat output]({{ site.baseurl }}/images/gsoc24-binary-short.png){style="display: block; margin: auto"}
 
-<audio controls="controls">
+<audio controls="controls" style="display: block; margin: auto">
     <source src="{{ site.baseurl }}/static/gsoc24-binary-short.wav">
     Your browser does not support the audio element.
 </audio>
-{: style="display: block; margin: auto"}
 
 With this approach, I found that difflogic was able to train networks that did a reasonable job of imitating bytebeat expressions (even with a naïve loss function and without the benefit of `+`, `*`, etc.). What's more, soon I found that even *totally random* (untrained) logic gate networks often sounded surprisingly interesting. This observation led me to focus less on sound reconstruction and more on a creating a compelling interaction for manipulating sound-generating logic gate networks.
 
 To that end, I built real-time visualization for synthesis networks. The visual feedback immediately suggested some intuition for why small logic gate networks, featuring simple positional binary encoding, might tend to sound "musical".
 
-![Animated synthesis network visualization]({{ site.baseurl }}/images/gsoc24-viz.gif){: style="display: block; margin: auto"}
+![Animated synthesis network visualization]({{ site.baseurl }}/images/gsoc24-viz.gif){style="display: block; margin: auto"}
 
 To elaborate, the input to the network is a sample counter. This counter functions as a binary clock, and its size in bits determines the overall periodicity of the network (how much audio it can generate before repeating). For example, in a network with 16 bits of input generating audio at a sample rate of 8kHz, the input will overflow and repeat itself every `2**16 / 8000 = 8.192` seconds. But crucially, each bit of input loops at a *different* period. The least-significant bit flips between 1 and 0 every single sample, with a period of just 250ųs (or a frequency of 4kHz). This period doubles for the next most-significant bit, and so on up to the most-significant bit, which has a period of 8.192 seconds.
 
@@ -176,15 +171,13 @@ The rest of the network is just logic gates applied to these inputs, with the re
 
 Following network visualization, I worked on network manipulation. I designed an interaction inspired by [circuit bending](https://en.wikipedia.org/wiki/Circuit_bending) practices allowing the player to perform "brain surgery" on a live running network by masking out various gates, temporarily replacing them with constant values. In order to make this responsive, I built a simple network interpreter so that the network could be modified directly in memory (rather than re-exporting the network to C, recompiling that C, and then reloading the compiled network).
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oJM4z2kHNTU?si=DRAYcJEFKg8QA4Ch" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-{: style="display: block; margin: auto"}
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oJM4z2kHNTU?si=DRAYcJEFKg8QA4Ch" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display: block; margin: auto"></iframe>
 
 The final application can run both on the Bela (using the [Trill Square](https://shop.bela.io/products/trill-square) sensor for the network bending interaction) and in the browser (for easy demoing and greater flexibility of configuration). The browser version runs the network interpreter as a WebAssembly module in an Audio Worklet.[^inevitable]
 
 [^inevitable]: thus satisfying the cosmic rule that all of my projects must inevitably involve wasm or worklets (usually both) somehow
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0kLyE7axAkg?si=TzwnAAuCDxwl0fYT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-{: style="display: block; margin: auto"}
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0kLyE7axAkg?si=TzwnAAuCDxwl0fYT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display: block; margin: auto"></iframe>
 
 <!-- (TODO embed demo in this page??) -->
 

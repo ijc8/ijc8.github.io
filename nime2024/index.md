@@ -68,8 +68,7 @@ This is about as simple as it gets: the silent card.
 
 This demonstrates the one thing that a program *must do* to serve as a scorecard: generate samples by exporting a `process()` function.
 
-(Technically the function is ultimately exported as `p` to save precious bytes, but you don't need to worry about that.)
-{: style="font-size: smaller"}
+(Technically the function is ultimately exported as `p` to save precious bytes, but you don't need to worry about that.){style="font-size: smaller"}
 
 The above example outputs the same sample forever. To make things more interesting, we need some *state*, so that subsequent calls to `process()` (which takes no arguments) can yield different results.
 

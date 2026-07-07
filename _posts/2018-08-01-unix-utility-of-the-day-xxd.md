@@ -15,6 +15,7 @@ I'm going to finally try out something mentioned in my [first entry]({{ site.bas
 00000050: aa84 0037 fa02 f763 0072 0af8 4e44 0059  ...7...c.r..ND.Y
 ...
 </code></pre></div></div>
+
 However, `xxd` has several neat options lacking in other hexdump tools.
 
 xxd -p

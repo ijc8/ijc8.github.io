@@ -5,8 +5,7 @@ subtitle: "samples in & samples out, asap"
 date: 2020-4-20 17:00:00 -0400
 ---
 
-{:style="text-align:center"}
-![Generated GIF]({{ site.baseurl }}/images/glowscan.gif "is it a banner or a teaser? you decide!"){: width="100%" height="50px"}
+![Generated GIF]({{ site.baseurl }}/images/glowscan.gif "is it a banner or a teaser? you decide!"){width="100%" height="50px"}
 
 Tools for working with audio and video abound. I often find that these do not perfectly serve my purposes: I know what I want, but existing tools might not support it well or at all. It's nice, and sometimes essential, to have the flexibility of a general programming language, which enables you to express what you want precisely using the abstractions of your choosing.
 
@@ -290,18 +289,18 @@ In the spirit of bytebeat, this wraps up the boilerplate so that you can generat
 
 For example, saving this script as `gif.py` and running `python3 gif.py x+y+t` will generate the following:
 
-{:style="text-align:center"}
-![Generated GIF]({{ site.baseurl }}/images/simple.gif "x+y+t")
+<p style="text-align:center"><img src="{{ site.baseurl }}/images/simple.gif" alt="Generated GIF" title="x+y+t"></p>
 
 Here are some other neato examples. Hover over each one to see the expression that generated it.
 
-{:style="text-align:center"}
-![Generated GIF]({{ site.baseurl }}/images/w.gif "int(abs(y-0.2-0.5*sin(2*pi*(x * (t-.5)**2*4))**2)<(1.1-(t-.5)**2*4)/5)")
-![Generated GIF]({{ site.baseurl }}/images/z.gif "1-abs(x-.2-.5*sin(2*pi*(y*(t-.5)**2*4))**2)**(1/2)")
-![Generated GIF]({{ site.baseurl }}/images/circles.gif "128*(2*(t-.5))**3*((x-.5)**2+(y-.5)**2)")
-![Generated GIF]({{ site.baseurl }}/images/glowscan.gif "(1-(abs((x-t+.5)%1-.5))**(1/4))/2+(y-(t-.5)**2)**2/2")
-![Generated GIF]({{ site.baseurl }}/images/woah.gif "2**8*((x-.5)/(y-.501))*t**3")
-![Generated GIF]({{ site.baseurl }}/images/fabric.gif "int(abs(x-(sin(2*pi*(t+r/4))*sin(2*pi*(y+r/2))+1)/2)<.05)*r")
+<p style="text-align:center">
+<img src="{{ site.baseurl }}/images/w.gif" alt="Generated GIF" title="int(abs(y-0.2-0.5*sin(2*pi*(x * (t-.5)**2*4))**2)<(1.1-(t-.5)**2*4)/5)">
+<img src="{{ site.baseurl }}/images/z.gif" alt="Generated GIF" title="1-abs(x-.2-.5*sin(2*pi*(y*(t-.5)**2*4))**2)**(1/2)">
+<img src="{{ site.baseurl }}/images/circles.gif" alt="Generated GIF" title="128*(2*(t-.5))**3*((x-.5)**2+(y-.5)**2)">
+<img src="{{ site.baseurl }}/images/glowscan.gif" alt="Generated GIF" title="(1-(abs((x-t+.5)%1-.5))**(1/4))/2+(y-(t-.5)**2)**2/2">
+<img src="{{ site.baseurl }}/images/woah.gif" alt="Generated GIF" title="2**8*((x-.5)/(y-.501))*t**3">
+<img src="{{ site.baseurl }}/images/fabric.gif" alt="Generated GIF" title="int(abs(x-(sin(2*pi*(t+r/4))*sin(2*pi*(y+r/2))+1)/2)<.05)*r">
+</p>
 
 # Conclusion
 

@@ -18,7 +18,7 @@ First: which projector? After brief investigation, I settled on [this one](https
 
 [^projector]: Beware: some projectors claim a resolution of 1080p, but merely accept 1080p input and rescale it to their actual, lower resolution. The projector I settled on has an actual resolution of 800x480, which is good enough for my purposes, and seemed better than its competitors at that price.
 
-![PVO Mini-Projector]({{ site.baseurl }}/images/projector.jpg "charming, no?"){: width="60%" style="display: block; margin: 0 auto"}
+![PVO Mini-Projector]({{ site.baseurl }}/images/projector.jpg "charming, no?"){width="60%" style="display: block; margin: 0 auto"}
 
 # Programmatic Light-Painting
 
@@ -30,7 +30,7 @@ First, my preliminary experiment: if the projector is displaying black, is the p
 
 Next, I tried pointing the projector somewhere other than a flat, blank surface (the typical target). The nearest thing was the bookshelf, so I pointed it there. This resulted in the following little project:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7RM0Z89iWfs" frameborder="0" allowfullscreen></iframe>{: style="display: block; margin: auto"}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7RM0Z89iWfs" frameborder="0" allowfullscreen style="display: block; margin: auto"></iframe>
 
 As the video demonstrates, the projector augments the bookshelf with search functionality. The query appears in the back of the shelf, above the books. And instead of listing the results somewhere (perhaps with a [code](https://en.wikipedia.org/wiki/Dewey_Decimal_Classification) so you can go find them on the shelf), the projector highlights the actual, physical books directly.
 
@@ -56,7 +56,7 @@ Initially, my goal was to have the projector contents appear automatically uprig
 
 Here's the system in action:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kQXnqwNQ6LA" frameborder="0" allowfullscreen></iframe>{: style="display: block; margin: auto"}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kQXnqwNQ6LA" frameborder="0" allowfullscreen style="display: block; margin: auto"></iframe>
 
 A few caveats:
 - My corner-color-tracking scheme is naive and easily confused by other objects that are close to the corner colors. This could be improved by better contour selection (e.g. using [`minAreaRect()`](https://docs.opencv.org/4.x/d3/dc0/group__imgproc__shape.html#ga3d476a3417130ae5154aea421ca7ead9) instead of [`contourArea()`](https://docs.opencv.org/4.x/d3/dc0/group__imgproc__shape.html#ga2c759ed9f497d4a618048a2f56dc97f1) and tightening up the bounds on area & aspect ratio), but another approach, such as [fiducials](https://en.wikipedia.org/wiki/Fiducial_marker) or spreading the identifiers across time (as in Lee's work with [Gray codes](https://en.wikipedia.org/wiki/Gray_code)), would likely be more robust.

@@ -28,14 +28,13 @@ I have been experimenting with runnable articles lately, with the initial goal o
 
 Click "Run" (or <kbd>Ctrl</kbd>+<kbd>Enter</kbd>) to make the magic happen.
 
-~~~ python
+~~~ python {.runnable}
 print("Hello, world!")
 ~~~
-{: .runnable}
 
 Perhaps that didn't knock your socks off, but we've got to start somewhere. The next example demonstrates real-time output (text appears on the page while the snippet is still running):
 
-~~~ python
+~~~ python {.runnable}
 import asyncio
 
 print("Time to count!")
@@ -43,22 +42,20 @@ for i in range(10):
     await asyncio.sleep(0.5)
     print(i)
 ~~~
-{: .runnable}
 
 Text is fine, but let's get visual. This example imports numpy (!!) and spits out a random RGB image each time it runs:
 
-~~~ python
+~~~ python {.runnable}
 import numpy as np
 import embed
 
 image = (np.random.random((300, 300, 3)) * 255).astype(np.uint8)
 embed.image(image)
 ~~~
-{: .runnable}
 
 And this example imports matplotlib (!!) and draws a couple of plots:
 
-~~~ python
+~~~ python {.runnable}
 import matplotlib.pyplot as plt
 import random
 
@@ -75,33 +72,30 @@ plt.plot([random.gauss(0, 1) for _ in range(1000)])
 plt.tight_layout()
 plt.show()
 ~~~
-{: .runnable}
 
 How about some time-varying content? This example generates a sine wave, which gets embedded in the page as an `<audio>` element.
 
-~~~ python
+~~~ python {.runnable}
 import math
 import embed
 
 sine_wave = [math.sin(2*math.pi*440*i/44100) for i in range(44100)]
 embed.audio(sine_wave, 44100)
 ~~~
-{: .runnable}
 
 Let's put it together: visual, time-varying content (i.e. animation):
 
-~~~ python
+~~~ python {.runnable}
 import numpy as np
 import embed
 
 frames = [(np.random.random((300, 300, 3)) * 255).astype(np.uint8) for i in range(5)]
 embed.animation(frames)
 ~~~
-{: .runnable}
 
 The post [Quick & Simple: Audio and Video in Python]({% post_url 2020-04-20-quick-audio-video-python %}) included a neat little example application for generating animated GIFs from short expressions (like `x+y+t`). With the ingredients we have so far, we can bring this application into the browser. You can run and tweak this directly:
 
-~~~ python
+~~~ python {.runnable}
 import numpy as np
 import embed
 
@@ -139,7 +133,6 @@ for anim in [waves, spring, walls, bounce, scan, flock]:
 # and try making your own expression animation!
 # render_animation(lambda x, y, t: <your expression here>)
 ~~~
-{: .runnable}
 
 # How does it work?
 
@@ -157,11 +150,10 @@ Enter Pyodide. [Pyodide](https://pyodide.org/en/stable/) brings Python, plus 75 
 
 What's the catch? Well, it's heavier than other options: the user has to download the whole Python runtime to run any Python code, which takes the form of a wasm blob on the order of 10 MB. That's a bit big, but not huge; it's small enough for browsers to cache. Conveniently, large compiled modules (like `numpy` and `scipy`) can be fetched only when needed. For my purposes, the tradeoff is worth it: I get CPython and many of the packages I often rely on when writing Python outside the browser.
 
-~~~ python
+~~~ python {.runnable}
 import sys
 print(sys.version)
 ~~~
-{: .runnable}
 
 # Glue
 
@@ -195,7 +187,7 @@ The JS pulled into the post will automatically find code blocks marked as "runna
 I hope to soon write more runnable posts that take advantage of this capability. Beyond that, I might look into [PyPy.js](http://pypyjs.org/) as another Emscripten-based approach (with [PyPy](https://www.pypy.org/)'s JIT compiler) to running Python in the browser, and at some point I'd like to extend my runnable posts to support other languages: JS, Scheme, Clojure, C, Rust... who knows? It's a brave new world on the web.
 
 Until then...
-~~~ python
+~~~ python {.runnable}
 import math
 import random
 import embed
@@ -214,7 +206,6 @@ for i in range(num_frames):
 
 embed.animation(frames, width=256, height=256, style="image-rendering: crisp-edges; display: block")
 ~~~
-{: .runnable}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" type="text/javascript" charset="utf-8"></script>
 
