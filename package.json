@@ -1,0 +1,14 @@
+{
+  "name": "ijc8.me",
+  "private": true,
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "markdown-it-attrs": "^4.2.0",
+    "markdown-it-footnote": "^4.0.0",
+    "sass": "^1.77.0"
+  }
+}

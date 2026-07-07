@@ -6,8 +6,8 @@ title: Posts
 <div class="home">
     <table class="posts">
         <tbody>
-            {% for post in site.posts %}
-            <tr><td>{{ post.date | date: site.date_format }}</td><td><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></td></tr>
+            {% for post in collections.posts %}
+            <tr><td>{{ post.data.displayDate }}</td><td><a href="{{ post.url | prepend: site.baseurl }}">{{ post.data.title }}</a></td></tr>
             {% endfor %}
         </tbody>
     </table>

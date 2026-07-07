@@ -6,3 +6,4 @@ Gemfile.lock
 site.code-workspace
 vendor/bundle
 .bundle/
+node_modules/

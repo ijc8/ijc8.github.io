@@ -2,11 +2,11 @@
 layout: default
 ---
 <article class="post">
-    <h2 class="post-header">{{ page.title }}</h2>
-		{% if page.subtitle %}
-		<h3 class="post-subtitle">{{ page.subtitle }}</h3>
+    <h2 class="post-header">{{ title }}</h2>
+		{% if subtitle %}
+		<h3 class="post-subtitle">{{ subtitle }}</h3>
 		{% endif %}
-    <p class="post-meta">{{ page.date | date: site.date_format }}</p>
+    <p class="post-meta">{{ displayDate }}</p>
     {{ content }}
     <script src="https://utteranc.es/client.js"
             repo="ijc8/ijc8.github.io"
