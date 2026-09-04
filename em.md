@@ -4,8 +4,7 @@ title:     special page for a special day
 permalink: /em/
 ---
 
-_A video awaits..._ <br>
-_To mark a special date!_{style="font-size: larger"}
+<p style="font-size: larger"><em>A video awaits…</em><br><em>To mark a special date!</em></p>
 
 <div id="player" style="transition: opacity 4s; opacity: 1"></div>
 

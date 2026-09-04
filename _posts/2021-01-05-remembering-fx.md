@@ -51,11 +51,11 @@ For everyone else, I hope this serves as a cautionary tale. If you're reading th
 
 ## Hardware
 
-I intended f(x) to support an arbitrary number of effects with a single hardware interface. To that end, I used a touchscreen ([HiLetgo ILI9341 2.8"](https://www.amazon.com/gp/product/B073R7BH1B))[^touchscreen] and five [clickable rotary encoders](https://www.amazon.com/gp/product/B06XQTHDRR). With this hardware, the firmware could readily implement a modal interface, supporting many different effects and interactions with the same hardware.
+I intended f(x) to support an arbitrary number of effects with a single hardware interface. To that end, I used a touchscreen ([HiLetgo ILI9341 2.8”](https://www.amazon.com/gp/product/B073R7BH1B))[^touchscreen] and five [clickable rotary encoders](https://www.amazon.com/gp/product/B06XQTHDRR). With this hardware, the firmware could readily implement a modal interface, supporting many different effects and interactions with the same hardware.
 
 [^touchscreen]: Initially, I used [another one](https://www.amazon.com/gp/product/B00TIYUWNY). After burning it out, I decided to go with something cheaper.
 
-Aside from the touchscreen and encoders, f(x) consisted of a 1/4" mono audio jack (for guitar input), a 1/8" mono audio jack (for audio output), a DP3T switch,[^switch] and the aforementioned PSoC 5LP (specifically the [dev board](https://www.cypress.com/documentation/development-kitsboards/cy8ckit-050-psoc-5lp-development-kit)). Oh, and a lightly used cardboard box from Adafruit, which served as a stylish enclosure.
+Aside from the touchscreen and encoders, f(x) consisted of a 1/4” mono audio jack (for guitar input), a 1/8” mono audio jack (for audio output), a DP3T switch,[^switch] and the aforementioned PSoC 5LP (specifically the [dev board](https://www.cypress.com/documentation/development-kitsboards/cy8ckit-050-psoc-5lp-development-kit)). Oh, and a lightly used cardboard box from Adafruit, which served as a stylish enclosure.
 
 [^switch]: Based on what I had handy; this could just as well have been SPDT.
 
@@ -90,7 +90,7 @@ The oscilloscope and spectrum analyzer do what you'd expect. The spectrum analyz
 
 The signal chain editor is the interesting part. f(x) features a fixed structure of three effects composed together: effect 1 → effect 2 → effect 3. The user can select the effects (choosing what should fill each slot in the chain) and change one parameter for each effect.[^parameters]
 
-f(x)'s firmware is in C, and the signal chain is essentially an array of function pointers (plus metadata like the effect name, parameter name, etc.). Each effect is implemented as a function that takes a buffer of input samples, a buffer for output samples, and a parameter value.
+f(x)’s firmware is in C, and the signal chain is essentially an array of function pointers (plus metadata like the effect name, parameter name, etc.). Each effect is implemented as a function that takes a buffer of input samples, a buffer for output samples, and a parameter value.
 
 [^parameters]: The idea was to ultimately support up to four parameters for each effect (hence the four rotary encoders along the bottom of the screen).
 

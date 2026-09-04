@@ -3,6 +3,7 @@ const path = require("path");
 const sass = require("sass");
 const markdownItAttrs = require("markdown-it-attrs");
 const markdownItFootnote = require("markdown-it-footnote");
+const { execFileSync } = require("child_process");
 
 // Pre-built web apps and other directories that should be copied through
 // verbatim, not processed as templates. (Jekyll copied these implicitly
@@ -49,12 +50,96 @@ module.exports = function (eleventyConfig) {
       const caption = slf.rules.footnote_caption(tokens, idx, options, env, slf);
       let refid = id;
       if (tokens[idx].meta.subId > 0) refid += ":" + tokens[idx].meta.subId;
-      return `<sup id="fnref${refid}"><a href="#fn${id}" class="footnote" rel="footnote">${caption}</a></sup>`;
+      return `<sup id="fnref${refid}" role="doc-noteref"><a href="#fn${id}" class="footnote" rel="footnote">${caption}</a></sup>`;
     };
     md.renderer.rules.footnote_anchor = (tokens, idx, options, env, slf) => {
       let id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf);
       if (tokens[idx].meta.subId > 0) id += ":" + tokens[idx].meta.subId;
-      return ` <a href="#fnref${id}" class="reversefootnote">↩</a>`;
+      return ` <a href="#fnref${id}" class="reversefootnote" role="doc-backlink">&#8617;</a>`;
+    };
+    // ...and the block markup: kramdown emits a plain div/ol with DPUB roles,
+    // not markdown-it-footnote's <hr> + <section> (the <hr> is a visible change).
+    md.renderer.rules.footnote_block_open = () =>
+      '<div class="footnotes" role="doc-endnotes">\n<ol>\n';
+    md.renderer.rules.footnote_block_close = () => "</ol>\n</div>\n";
+    md.renderer.rules.footnote_open = (tokens, idx, options, env, slf) => {
+      let id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf);
+      if (tokens[idx].meta.subId > 0) id += ":" + tokens[idx].meta.subId;
+      return `<li id="fn${id}" role="doc-endnote">\n`;
+    };
+    md.renderer.rules.footnote_close = () => "</li>\n";
+
+    // ~~strike~~ as <del>, as kramdown rendered it
+    md.renderer.rules.s_open = () => "<del>";
+    md.renderer.rules.s_close = () => "</del>";
+
+    // kramdown treated a paragraph that *is* an HTML element (a lone <audio>,
+    // an <audio>…</audio> with fallback text) as a raw block; CommonMark
+    // doesn't list those tags as block tags and wraps them in <p>. Unwrap,
+    // unless an attribute list was attached to the paragraph itself.
+    md.core.ruler.push("bare_html_paragraphs", (state) => {
+      const toks = state.tokens;
+      for (let i = 0; i + 2 < toks.length; i++) {
+        if (toks[i].type !== "paragraph_open" || toks[i + 2].type !== "paragraph_close") continue;
+        if (toks[i].attrs && toks[i].attrs.length) continue;
+        const kids = toks[i + 1].children || [];
+        const first = kids[0], last = kids[kids.length - 1];
+        if (!first || first.type !== "html_inline" || last.type !== "html_inline") continue;
+        const open = /^<([a-zA-Z][\w-]*)\b/.exec(first.content);
+        const close = /^<\/([a-zA-Z][\w-]*)\s*>$/.exec(last.content);
+        const allHtml = kids.every((t) => t.type === "html_inline" || (t.type === "text" && !t.content.trim()));
+        if (!allHtml && !(open && close && open[1].toLowerCase() === close[1].toLowerCase())) continue;
+        const html = new state.Token("html_block", "", 0);
+        html.content = state.md.renderer.renderInline(kids, state.md.options, state.env) + "\n";
+        html.block = true;
+        toks.splice(i, 3, html);
+      }
+    });
+
+    // Heading ids the way Jekyll's kramdown GFM parser made them (downcase,
+    // strip non-word chars except "-", spaces to "-", "-N" on repeats), so
+    // every existing #anchor keeps resolving. Runs after markdown-it-attrs so
+    // an explicit {#id} still wins.
+    md.core.ruler.push("gfm_header_ids", (state) => {
+      const used = new Map();
+      const toks = state.tokens;
+      for (let i = 0; i < toks.length; i++) {
+        if (toks[i].type !== "heading_open") continue;
+        if (toks[i].attrGet("id")) continue;
+        const inline = toks[i + 1];
+        const text = inline.children
+          .filter((t) => t.type === "text" || t.type === "code_inline")
+          .map((t) => t.content)
+          .join("");
+        let id = text
+          .toLowerCase()
+          .replace(/[^\p{L}\p{M}\p{Nd}\p{Pc}\- \t]/gu, "")
+          .replace(/[ \t]/g, "-");
+        const n = used.get(id) || 0;
+        used.set(id, n + 1);
+        if (n > 0) id += `-${n}`;
+        toks[i].attrSet("id", id);
+      }
+    });
+
+    // Fenced code: Rouge-shaped markup, highlighted by Pygments (same
+    // Pygments-compatible token classes, so _sass/_syntax.scss and
+    // runnable/main.js -- which selects div.runnable.language-python --
+    // keep working). Needs `python3 -m pygments` on the build machine.
+    const pygmentize = (code, lang) => {
+      const run = (lexer) =>
+        execFileSync("python3", ["-m", "pygments", "-l", lexer, "-f", "html", "-O", "nowrap=True"],
+          { input: code, encoding: "utf8", stdio: ["pipe", "pipe", "ignore"] });
+      try { return run(lang || "text"); } catch (e) { return run("text"); }
+    };
+    md.renderer.rules.fence = (tokens, idx) => {
+      const tok = tokens[idx];
+      const lang = (tok.info || "").trim().split(/\s+/)[0];
+      const extra = (tok.attrGet("class") || "").split(/\s+/).filter(Boolean)
+        .filter((c) => c !== `language-${lang}`);
+      const classes = [`language-${lang || "plaintext"}`, ...extra, "highlighter-rouge"];
+      const body = pygmentize(tok.content.replace(/\n$/, ""), lang);
+      return `<div class="${classes.join(" ")}"><div class="highlight"><pre class="highlight"><code>${body}</code></pre></div></div>\n`;
     };
   });
 

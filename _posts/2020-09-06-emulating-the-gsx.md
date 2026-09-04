@@ -236,63 +236,54 @@ label {
             <label for="inc"><br>INC</label>
             <div class="step-container"><input id="inc" type="number" value="1"></div>
         </div>
-
         <div class="param">
             <label for="freq"><br>FREQ</label>
             <div class="step-container">
                 <input id="freq" type="number" value="200"><span id="freq-sign"></span><input id="freq-step" class="step" type="number" value="">
             </div>
         </div>
-
         <div class="param">
             <label for="freq-range"><br>FRQ.RNG</label>
             <div class="step-container">
                 <input id="freq-range" type="number" value="0"><span id="freq-range-sign"></span><input id="freq-range-step" class="step" type="number" value="">
             </div>
         </div>
-
         <div class="param">
             <label for="dur"><br>DUR'N</label>
             <div class="step-container">
                 <input id="dur" type="number" value="100" min="1"><span id="dur-sign"></span><input id="dur-step" class="step" type="number" value="">
             </div>
         </div>
-
         <div class="param">
             <label for="dur-range"><br>DUR.RNG</label>
             <div class="step-container">
                 <input id="dur-range" type="number" value="0"><span id="dur-range-sign"></span><input id="dur-range-step" class="step" type="number" value="">
             </div>
         </div>
-
         <div class="param">
             <label for="delay"><br>DELAY</label>
             <div class="step-container">
                 <input id="delay" type="number" value="200"><span id="delay-sign"></span><input id="delay-step" class="step" type="number" value="">
             </div>
         </div>
-
         <div class="param">
             <label for="ramp"><br>RAMP</label>
             <div class="step-container">
                 <input id="ramp" type="number" value="250" min="1"><span id="ramp-sign"></span><input id="ramp-step" class="step" type="number" value="">
             </div>
         </div>
-
         <div class="param">
             <label for="num-waveform2">NO.VOI.<br>W.F.#2</label>
             <div class="step-container">
                 <input id="num-waveform2" type="number" value="0" min="0" max="20"><span id="num-waveform2-sign"></span><input id="num-waveform2-step" class="step" type="number" value="">
             </div>
         </div>
-
         <div class="param">
             <label for="num-waveform3">NO.VOI.<br>W.F.#3</label>
             <div class="step-container">
                 <input id="num-waveform3" type="number" value="0" min="0" max="20"><span id="num-waveform3-sign"></span><input id="num-waveform3-step" class="step" type="number" value="">
             </div>
         </div>
-
         <div class="param">
             <label for="num-voices">TOTAL<br>NO.VOI.</label>
             <div class="step-container">

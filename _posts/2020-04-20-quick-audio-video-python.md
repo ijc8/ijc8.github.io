@@ -5,7 +5,7 @@ subtitle: "samples in & samples out, asap"
 date: 2020-4-20 17:00:00 -0400
 ---
 
-![Generated GIF]({{ site.baseurl }}/images/glowscan.gif "is it a banner or a teaser? you decide!"){width="100%" height="50px"}
+<p style="text-align:center"><img src="{{ site.baseurl }}/images/glowscan.gif" alt="Generated GIF" title="is it a banner or a teaser? you decide!" width="100%" height="50px"></p>
 
 Tools for working with audio and video abound. I often find that these do not perfectly serve my purposes: I know what I want, but existing tools might not support it well or at all. It's nice, and sometimes essential, to have the flexibility of a general programming language, which enables you to express what you want precisely using the abstractions of your choosing.
 
