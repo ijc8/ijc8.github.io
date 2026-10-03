@@ -18,6 +18,7 @@ const STATIC_DIRS = [
   "kilobeat",
   "minimax",
   "nime2024/slides",
+  "cj2026",
   "pattern-planter",
   "projector",
   "rtcmix-demo",
