@@ -210,6 +210,28 @@ module.exports = function (eleventyConfig) {
     api.getFilteredByGlob("_posts/*.md").slice().reverse()
   );
 
+  // GoatCounter snippet, shared by the default layout ({% goatcounter %}) and
+  // the injector below, so templated pages and pre-built apps (ScoreCard at /s/,
+  // ...) count the same way.
+  const goatcounterSnippet = () => {
+    const site = JSON.parse(
+      fs.readFileSync(path.join(__dirname, "_data/site.json"), "utf8")
+    );
+    return `    <!-- GoatCounter, counted twice for now: self-hosted stats.ijc8.me and goatcounter.com, to compare
+         how many visits ad blockers hide from each. One local copy of count.js (js/gc.js); two copies of
+         the script would both report to the first data-goatcounter endpoint on the page. -->
+    <script>window.goatcounter = {no_onload: true}</script>
+    <script async src="${site.baseurl}/js/gc.js" onload="(function () {
+      var targets = ['https://stats.ijc8.me/count', 'https://${site.goatcounter}.goatcounter.com/count']
+      var both = function () { targets.forEach(function (e) { goatcounter.endpoint = e; goatcounter.count() }) }
+      if (document.visibilityState === 'visible') both()
+      else document.addEventListener('visibilitychange', function f() {
+        if (document.visibilityState !== 'visible') return
+        document.removeEventListener('visibilitychange', f); both() })
+    })()"></script>\n`;
+  };
+  eleventyConfig.addShortcode("goatcounter", goatcounterSnippet);
+
   // Port of _plugins/goatcounter_injector.rb: inject the GoatCounter snippet
   // into passthrough-copied HTML (pre-built apps). Templated pages already
   // get it from the default layout.
@@ -217,10 +239,7 @@ module.exports = function (eleventyConfig) {
     // Only touch copied files, not templated pages (which get the snippet
     // from their layout, or deliberately lack it, e.g. scorecard-workshop).
     const templated = new Set(results.map((r) => path.resolve(r.outputPath)));
-    const site = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "_data/site.json"), "utf8")
-    );
-    const tag = `<script data-goatcounter="https://${site.goatcounter}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>\n`;
+    const tag = goatcounterSnippet();
     const walk = (d) => {
       for (const entry of fs.readdirSync(d, { withFileTypes: true })) {
         const p = path.join(d, entry.name);
